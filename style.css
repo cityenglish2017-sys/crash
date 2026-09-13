@@ -11,7 +11,6 @@
   --red: #df4c4c;
   --yellow: #f4bd3b;
   --text: #16233d;
-  --light: #f4f8fd;
 }
 
 html,
@@ -25,7 +24,6 @@ body {
     BlinkMacSystemFont,
     "Apple SD Gothic Neo",
     "Noto Sans KR",
-    "Malgun Gothic",
     sans-serif;
 
   background:
@@ -45,29 +43,28 @@ body {
 
 button {
   font: inherit;
+  cursor: pointer;
 }
 
 .app {
   width: min(1400px,100%);
   margin: 0 auto;
 
-  padding:
-    8px
-    max(12px,env(safe-area-inset-right))
-    max(8px,env(safe-area-inset-bottom))
-    max(12px,env(safe-area-inset-left));
+  padding: 7px 12px;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 상단 */
-/* ======================================== */
+/* ============================== */
 
 .topbar {
-  min-height: 54px;
+  min-height: 49px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   gap: 15px;
@@ -77,7 +74,9 @@ button {
   margin: 0 0 2px;
 
   font-size: 9px;
+
   font-weight: 900;
+
   letter-spacing: .13em;
 
   color: #397cba;
@@ -88,9 +87,9 @@ h1 {
 
   font-size:
     clamp(
-      22px,
-      2.6vw,
-      32px
+      20px,
+      2.5vw,
+      30px
     );
 
   line-height: 1;
@@ -102,17 +101,19 @@ h1 {
 }
 
 .score-box {
-  min-width: 67px;
+  min-width: 62px;
 
-  padding: 5px 9px;
+  padding: 4px 8px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 5px;
 
-  border-radius: 14px;
+  border-radius: 13px;
 
   background: white;
 
@@ -122,22 +123,155 @@ h1 {
 }
 
 .score-box strong {
-  font-size: 19px;
+  font-size: 17px;
 }
 
 
-/* ======================================== */
+/* ============================== */
+/* 출발 패널 */
+/* ============================== */
+
+.departure-panel {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    180px
+    1fr;
+
+  gap: 8px;
+
+  margin:
+    4px 0 6px;
+}
+
+.departure-side,
+.signal-center {
+  min-height: 56px;
+
+  border-radius: 15px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 14px
+    rgba(35,72,120,.09);
+}
+
+.departure-side {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 6px 10px;
+
+  gap: 8px;
+}
+
+.departure-name {
+  font-size: 14px;
+
+  font-weight: 950;
+
+  white-space: nowrap;
+}
+
+.departure-btn {
+  min-width: 100px;
+
+  min-height: 39px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 950;
+
+  box-shadow:
+    0 4px 0
+    rgba(0,0,0,.15);
+}
+
+.ktx-start-btn {
+  background:
+    linear-gradient(
+      #2877d8,
+      #1654a2
+    );
+}
+
+.mugunghwa-start-btn {
+  background:
+    linear-gradient(
+      #e45757,
+      #b53036
+    );
+}
+
+.departure-btn:active {
+  transform:
+    translateY(3px);
+
+  box-shadow:
+    0 1px 0
+    rgba(0,0,0,.15);
+}
+
+.departure-btn.departed {
+  background: #909aa5;
+
+  box-shadow: none;
+
+  opacity: .7;
+}
+
+.signal-center {
+  display: grid;
+
+  place-items: center;
+
+  align-content: center;
+
+  padding: 4px;
+}
+
+.signal-title {
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+.departure-signal {
+  font-size: 21px;
+}
+
+.departure-text {
+  font-size: 9px;
+
+  font-weight: 850;
+
+  text-align: center;
+}
+
+
+/* ============================== */
 /* 철도 장면 */
-/* ======================================== */
+/* ============================== */
 
 .rail-scene {
   position: relative;
 
-  height: 270px;
+  height: 245px;
 
   overflow: hidden;
 
-  border-radius: 24px;
+  border-radius: 22px;
 
   background:
     linear-gradient(
@@ -150,12 +284,13 @@ h1 {
     rgba(255,255,255,.85);
 
   box-shadow:
-    0 12px 32px
+    0 10px 28px
     rgba(34,84,135,.17);
 }
 
 .sky {
   position: absolute;
+
   inset: 0 0 44%;
 
   background:
@@ -166,26 +301,27 @@ h1 {
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 관제탑 */
-/* ======================================== */
+/* ============================== */
 
 .control-tower {
   position: absolute;
 
   left: 50%;
-  top: 12px;
+
+  top: 8px;
 
   transform:
     translateX(-50%);
 
-  width: 145px;
+  width: 132px;
 
   z-index: 4;
 }
 
 .tower-title {
-  padding: 4px;
+  padding: 3px;
 
   border-radius:
     7px 7px 0 0;
@@ -196,18 +332,20 @@ h1 {
 
   text-align: center;
 
-  font-size: 10px;
+  font-size: 9px;
+
   font-weight: 900;
 }
 
 .tower-window {
-  height: 62px;
+  height: 54px;
 
   display: grid;
+
   place-items: center;
 
   border:
-    5px solid
+    4px solid
     #536f87;
 
   background:
@@ -216,19 +354,20 @@ h1 {
       #7ac6ea
     );
 
-  font-size: 35px;
+  font-size: 30px;
 }
 
 
-/* ======================================== */
-/* 메시지 */
-/* ======================================== */
+/* ============================== */
+/* 장면 메시지 */
+/* ============================== */
 
 .scene-message {
   position: absolute;
 
   left: 50%;
-  top: 89px;
+
+  top: 73px;
 
   transform:
     translateX(-50%);
@@ -236,7 +375,7 @@ h1 {
   z-index: 15;
 
   padding:
-    5px 13px;
+    4px 11px;
 
   border-radius: 99px;
 
@@ -245,23 +384,24 @@ h1 {
 
   color: white;
 
-  font-size: 12px;
+  font-size: 11px;
+
   font-weight: 900;
 
   white-space: nowrap;
 }
 
 
-/* ======================================== */
-/* 열차 구역 */
-/* ======================================== */
+/* ============================== */
+/* 열차 영역 */
+/* ============================== */
 
 .train-zone {
   position: absolute;
 
-  bottom: 43px;
+  bottom: 38px;
 
-  width: 42%;
+  width: 40%;
 
   z-index: 8;
 }
@@ -279,16 +419,15 @@ h1 {
 
   text-align: center;
 
-  font-size: 12px;
-  font-weight: 950;
+  font-size: 11px;
 
-  color: #17334f;
+  font-weight: 950;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 열차 */
-/* ======================================== */
+/* ============================== */
 
 .train {
   display: flex;
@@ -298,7 +437,7 @@ h1 {
   gap: 3px;
 
   transition:
-    transform .45s ease,
+    transform 1.35s ease-in-out,
     opacity .35s ease;
 }
 
@@ -310,7 +449,7 @@ h1 {
 .car {
   position: relative;
 
-  height: 47px;
+  height: 43px;
 
   border:
     3px solid
@@ -318,11 +457,11 @@ h1 {
 }
 
 .engine {
-  width: 115px;
+  width: 105px;
 }
 
 .car {
-  width: 104px;
+  width: 94px;
 
   display: flex;
 
@@ -341,8 +480,8 @@ h1 {
 }
 
 .car span {
-  width: 21px;
-  height: 13px;
+  width: 19px;
+  height: 12px;
 
   border-radius: 3px;
 }
@@ -352,11 +491,11 @@ h1 {
 
   display: inline-block;
 
-  width: 27px;
-  height: 13px;
+  width: 24px;
+  height: 12px;
 
   margin:
-    9px 2px 0 10px;
+    8px 2px 0 9px;
 
   border-radius: 6px;
 }
@@ -364,28 +503,28 @@ h1 {
 .light {
   position: absolute;
 
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
 
-  bottom: 7px;
-  left: 7px;
+  bottom: 6px;
+  left: 6px;
 
   border-radius: 50%;
 
   background: #ffe26b;
 
   box-shadow:
-    0 0 10px
+    0 0 9px
     #ffe26b;
 }
 
 .reverse .light {
   left: auto;
-  right: 7px;
+  right: 6px;
 }
 
 
-/* KTX 산천 */
+/* KTX */
 
 .ktx .engine,
 .ktx .car {
@@ -400,11 +539,11 @@ h1 {
 
 .ktx .engine {
   border-radius:
-    31px 8px 6px 6px;
+    30px 8px 6px 6px;
 }
 
 
-/* 무궁화 */
+/* 무궁화호 */
 
 .mugunghwa .engine,
 .mugunghwa .car {
@@ -422,24 +561,42 @@ h1 {
 }
 
 
-/* 사고 상태 */
+/* ============================== */
+/* 출발 애니메이션 */
+/* ============================== */
 
-.train.damaged.ktx {
+.ktx.departing {
   transform:
-    rotate(2deg)
-    translateX(6px);
+    translateX(24%);
 }
 
-.train.damaged.mugunghwa {
+.mugunghwa.departing {
   transform:
-    rotate(-2deg)
-    translateX(-6px);
+    translateX(-24%);
 }
+
+
+/* 충돌 위치 */
+
+.ktx.crashed {
+  transform:
+    translateX(43%)
+    rotate(2deg);
+}
+
+.mugunghwa.crashed {
+  transform:
+    translateX(-43%)
+    rotate(-2deg);
+}
+
+
+/* 복구 완료 */
 
 .train.repaired {
   transform:
-    rotate(0)
-    translateX(0);
+    translateX(0)
+    rotate(0);
 
   filter:
     drop-shadow(
@@ -449,57 +606,29 @@ h1 {
 }
 
 
-/* ======================================== */
-/* 고장 표시 */
-/* ======================================== */
+/* 마지막 출발 */
 
-.fault-badges {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 7px;
-
-  margin-top: 5px;
+.ktx.final-run {
+  transform:
+    translateX(130%);
 }
 
-.fault {
-  min-width: 54px;
-
-  padding: 4px 7px;
-
-  border-radius: 10px;
-
-  background:
-    rgba(255,255,255,.9);
-
-  text-align: center;
-
-  font-size: 18px;
-
-  box-shadow:
-    0 3px 10px
-    rgba(0,0,0,.11);
-}
-
-.fault.fixed {
-  background: #e4faec;
-
-  box-shadow:
-    0 0 10px
-    rgba(55,194,105,.28);
+.mugunghwa.final-run {
+  transform:
+    translateX(-130%);
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 충돌 표시 */
-/* ======================================== */
+/* ============================== */
 
 .impact-zone {
   position: absolute;
 
   left: 50%;
-  bottom: 78px;
+
+  bottom: 68px;
 
   transform:
     translateX(-50%);
@@ -510,24 +639,25 @@ h1 {
 }
 
 .impact-mark {
-  font-size: 52px;
+  font-size: 49px;
 
   animation:
     impactPulse
-    .9s ease-in-out
+    .4s ease-in-out
     infinite alternate;
 }
 
 .impact-text {
-  margin-top: -12px;
+  margin-top: -10px;
 
-  padding: 2px 9px;
+  padding: 2px 8px;
 
   border-radius: 99px;
 
-  background: #fff;
+  background: white;
 
-  font-size: 13px;
+  font-size: 12px;
+
   font-weight: 950;
 }
 
@@ -544,9 +674,43 @@ h1 {
 }
 
 
-/* ======================================== */
+/* ============================== */
+/* 고장 표시 */
+/* ============================== */
+
+.fault-badges {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 4px;
+}
+
+.fault {
+  min-width: 50px;
+
+  padding: 3px 6px;
+
+  border-radius: 9px;
+
+  background:
+    rgba(255,255,255,.93);
+
+  text-align: center;
+
+  font-size: 16px;
+}
+
+.fault.fixed {
+  background: #e4faec;
+}
+
+
+/* ============================== */
 /* 선로 */
-/* ======================================== */
+/* ============================== */
 
 .rail {
   position: absolute;
@@ -554,23 +718,24 @@ h1 {
   left: 0;
 
   width: 100%;
+
   height: 5px;
 
   background: #555f67;
 }
 
 .rail-one {
-  bottom: 35px;
+  bottom: 31px;
 }
 
 .rail-two {
-  bottom: 20px;
+  bottom: 17px;
 }
 
 
-/* ======================================== */
-/* 수리 상태 */
-/* ======================================== */
+/* ============================== */
+/* 복구 진행도 */
+/* ============================== */
 
 .repair-status {
   display: grid;
@@ -578,39 +743,40 @@ h1 {
   grid-template-columns:
     1fr 1fr;
 
-  gap: 8px;
+  gap: 7px;
 
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 .repair-box {
   display: grid;
 
   grid-template-columns:
-    110px 1fr 42px;
+    105px 1fr 40px;
 
   align-items: center;
 
-  gap: 8px;
+  gap: 7px;
 
-  padding: 7px 10px;
+  padding: 5px 8px;
 
-  border-radius: 14px;
+  border-radius: 12px;
 
   background: white;
 
   box-shadow:
-    0 5px 15px
-    rgba(35,72,120,.09);
+    0 4px 13px
+    rgba(35,72,120,.08);
 }
 
 .repair-name {
-  font-size: 12px;
+  font-size: 11px;
+
   font-weight: 900;
 }
 
 .progress-track {
-  height: 13px;
+  height: 11px;
 
   overflow: hidden;
 
@@ -638,25 +804,26 @@ h1 {
 .progress-number {
   text-align: right;
 
-  font-size: 11px;
+  font-size: 10px;
+
   font-weight: 900;
 }
 
 
-/* ======================================== */
-/* 게임 패널 */
-/* ======================================== */
+/* ============================== */
+/* 게임패널 */
+/* ============================== */
 
 .game-panel {
   display: grid;
 
   grid-template-columns:
     minmax(0,2.4fr)
-    minmax(220px,.6fr);
+    minmax(210px,.6fr);
 
-  gap: 8px;
+  gap: 7px;
 
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 .mission-card,
@@ -668,33 +835,33 @@ h1 {
     #dbe4ef;
 
   box-shadow:
-    0 7px 20px
-    rgba(34,73,122,.09);
+    0 6px 18px
+    rgba(34,73,122,.08);
 }
 
 .mission-card {
-  padding: 11px 13px;
+  padding: 8px 10px;
 
-  border-radius: 18px;
+  border-radius: 16px;
 }
 
 .team-panel {
-  padding: 10px;
+  padding: 8px;
 
-  border-radius: 18px;
+  border-radius: 16px;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 미션 상단 */
-/* ======================================== */
+/* ============================== */
 
 .mission-top {
   display: flex;
 
-  align-items: center;
-
   justify-content: space-between;
+
+  align-items: center;
 }
 
 .mission-type,
@@ -703,13 +870,15 @@ h1 {
 
   align-items: center;
 
-  min-height: 25px;
+  min-height: 23px;
 
-  padding: 3px 9px;
+  padding:
+    3px 8px;
 
   border-radius: 99px;
 
-  font-size: 10px;
+  font-size: 9px;
+
   font-weight: 900;
 }
 
@@ -728,7 +897,7 @@ h1 {
 .mission-top-actions {
   display: flex;
 
-  gap: 5px;
+  gap: 4px;
 
   align-items: center;
 }
@@ -736,33 +905,31 @@ h1 {
 .sound-btn {
   border: 0;
 
-  min-width: 34px;
-  height: 29px;
+  width: 31px;
+  height: 27px;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   background: #edf2f7;
-
-  font-size: 16px;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 등장인물 */
-/* ======================================== */
+/* ============================== */
 
 .character-row {
   display: flex;
 
   align-items: center;
 
-  gap: 6px;
+  gap: 5px;
 
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .character-label {
-  font-size: 9px;
+  font-size: 8px;
 
   color: #6e7886;
 
@@ -774,11 +941,12 @@ h1 {
 
   flex-wrap: wrap;
 
-  gap: 4px;
+  gap: 3px;
 }
 
 .character-chip {
-  padding: 2px 7px;
+  padding:
+    2px 6px;
 
   border-radius: 99px;
 
@@ -786,28 +954,28 @@ h1 {
 
   color: #7c511a;
 
-  font-size: 10px;
+  font-size: 9px;
 
   font-weight: 900;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 문제 */
-/* ======================================== */
+/* ============================== */
 
 .mission-title-row {
   display: flex;
 
   align-items: center;
 
-  gap: 6px;
+  gap: 5px;
 
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .mission-icon {
-  font-size: 24px;
+  font-size: 21px;
 }
 
 .mission-card h2 {
@@ -815,32 +983,32 @@ h1 {
 
   font-size:
     clamp(
-      19px,
-      1.9vw,
-      26px
+      18px,
+      1.8vw,
+      24px
     );
 }
 
 #missionText {
   margin:
-    3px 0 7px;
+    2px 0 5px;
 
   font-size:
     clamp(
-      14px,
-      1.4vw,
-      19px
+      13px,
+      1.3vw,
+      18px
     );
 
-  line-height: 1.32;
+  line-height: 1.25;
 
   font-weight: 800;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 선택지 */
-/* ======================================== */
+/* ============================== */
 
 .choices {
   display: grid;
@@ -848,38 +1016,37 @@ h1 {
   grid-template-columns:
     repeat(2,minmax(0,1fr));
 
-  gap: 6px;
+  gap: 5px;
 }
 
 .choice-btn {
-  min-height: 44px;
+  min-height: 39px;
 
-  padding: 7px 9px;
+  padding:
+    5px 7px;
 
   border:
     2px solid
     #dce5ef;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
-  background: #fff;
+  background: white;
 
   color: var(--text);
 
   font-size:
     clamp(
-      12px,
-      1.1vw,
-      15px
+      11px,
+      1vw,
+      14px
     );
 
   font-weight: 850;
 
-  line-height: 1.25;
+  line-height: 1.2;
 
   text-align: left;
-
-  cursor: pointer;
 }
 
 .choice-btn.correct {
@@ -895,22 +1062,22 @@ h1 {
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 피드백 */
-/* ======================================== */
+/* ============================== */
 
 .feedback {
-  margin-top: 6px;
+  margin-top: 4px;
 
-  padding: 6px 8px;
+  padding: 5px 7px;
 
-  border-radius: 10px;
+  border-radius: 9px;
 
-  font-size: 12px;
-
-  line-height: 1.3;
+  font-size: 11px;
 
   font-weight: 850;
+
+  line-height: 1.25;
 }
 
 .feedback.good {
@@ -926,20 +1093,20 @@ h1 {
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 말하기 */
-/* ======================================== */
+/* ============================== */
 
 .speech-box {
-  margin-top: 6px;
+  margin-top: 4px;
 
-  padding: 8px;
+  padding: 6px;
 
   border:
     2px dashed
     #7fa9dc;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
   background:
     linear-gradient(
@@ -950,7 +1117,7 @@ h1 {
 }
 
 .speech-title {
-  font-size: 11px;
+  font-size: 10px;
 
   font-weight: 900;
 
@@ -959,83 +1126,111 @@ h1 {
 
 .speech-prompt {
   margin:
-    4px 0 6px;
+    3px 0 5px;
 
-  font-size: 13px;
+  font-size: 11px;
 
   font-weight: 850;
-
-  line-height: 1.3;
 }
 
 .speech-done-btn {
   width: 100%;
 
-  min-height: 34px;
+  min-height: 30px;
 
   border: 0;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   background: #7059c7;
 
   color: white;
 
-  font-size: 12px;
+  font-size: 11px;
 
   font-weight: 900;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 메인 버튼 */
-/* ======================================== */
+/* ============================== */
 
 .main-buttons {
   display: flex;
 
   justify-content: center;
 
-  margin-top: 7px;
+  margin-top: 5px;
 }
 
 .main-btn {
-  min-width: 180px;
+  min-width: 185px;
 
-  min-height: 39px;
+  min-height: 35px;
 
   border: 0;
 
-  border-radius: 11px;
+  border-radius: 10px;
 
   background:
     linear-gradient(
-      135deg,
       #2370d9,
       #4c92ee
     );
 
   color: white;
 
-  font-size: 14px;
+  font-size: 12px;
 
   font-weight: 950;
+}
 
-  box-shadow:
-    0 5px 13px
-    rgba(35,112,217,.22);
+.disabled-start {
+  background: #a6adb5;
+
+  opacity: .6;
+
+  cursor: default;
+}
+
+.main-btn.ready-start {
+  background:
+    linear-gradient(
+      #e74c3c,
+      #b72e23
+    );
+
+  opacity: 1;
+
+  animation:
+    readyPulse
+    .8s ease-in-out
+    infinite alternate;
+}
+
+@keyframes readyPulse {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.04);
+  }
+
 }
 
 
-/* ======================================== */
-/* 팀 패널 */
-/* ======================================== */
+/* ============================== */
+/* 정비팀 */
+/* ============================== */
 
 .team-panel h3 {
   margin:
-    0 0 8px;
+    0 0 6px;
 
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .team-grid {
@@ -1044,11 +1239,11 @@ h1 {
   grid-template-columns:
     repeat(2,1fr);
 
-  gap: 6px;
+  gap: 5px;
 }
 
 .team-card {
-  min-height: 68px;
+  min-height: 57px;
 
   display: flex;
 
@@ -1056,24 +1251,20 @@ h1 {
 
   justify-content: center;
 
-  gap: 6px;
+  gap: 5px;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
   background: #f4f7fb;
 
   border:
     2px solid
     #e1e8f0;
-
-  transition:
-    transform .2s ease,
-    background .2s ease;
 }
 
 .team-card.active {
   transform:
-    translateY(-4px);
+    translateY(-3px);
 
   background: #e9f9ef;
 
@@ -1081,31 +1272,31 @@ h1 {
 }
 
 .team-icon {
-  font-size: 29px;
-}
-
-.team-tool {
   font-size: 25px;
 }
 
+.team-tool {
+  font-size: 22px;
+}
+
 .team-tip {
-  margin-top: 8px;
+  margin-top: 6px;
 
-  padding: 7px;
+  padding: 5px;
 
-  border-radius: 10px;
+  border-radius: 8px;
 
   background: #fff4d8;
 
   text-align: center;
 
-  font-size: 18px;
+  font-size: 16px;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 성공창 */
-/* ======================================== */
+/* ============================== */
 
 .success-modal {
   position: fixed;
@@ -1129,47 +1320,47 @@ h1 {
   width:
     min(420px,85vw);
 
-  padding: 28px;
+  padding: 25px;
 
-  border-radius: 26px;
+  border-radius: 25px;
 
   background: white;
 
   text-align: center;
-
-  box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.25);
 }
 
 .success-emoji {
-  font-size: 65px;
+  font-size: 60px;
 }
 
 .success-card h2 {
   margin:
-    3px 0 7px;
-
-  font-size: 28px;
+    3px 0 6px;
 }
 
 .success-card p {
-  margin:
-    0 0 15px;
-
-  line-height: 1.5;
-
   font-weight: 750;
+}
+
+.final-departure {
+  display: flex;
+
+  justify-content: space-around;
+
+  margin:
+    15px 0;
+
+  font-size: 28px;
 }
 
 .restart-btn {
   min-width: 180px;
 
-  min-height: 45px;
+  min-height: 43px;
 
   border: 0;
 
-  border-radius: 12px;
+  border-radius: 11px;
 
   background: #2f78da;
 
@@ -1179,18 +1370,14 @@ h1 {
 }
 
 
-/* ======================================== */
-/* 숨김 */
-/* ======================================== */
-
 .hidden {
   display: none !important;
 }
 
 
-/* ======================================== */
+/* ============================== */
 /* 아이패드 가로 */
-/* ======================================== */
+/* ============================== */
 
 @media
 (max-height:850px)
@@ -1198,11 +1385,11 @@ and
 (orientation:landscape) {
 
   .app {
-    padding-top: 4px;
+    padding-top: 3px;
   }
 
   .topbar {
-    min-height: 40px;
+    min-height: 36px;
   }
 
   .eyebrow {
@@ -1210,162 +1397,134 @@ and
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 19px;
   }
 
-  .score-box {
-    min-width: 55px;
+  .departure-panel {
+    grid-template-columns:
+      1fr 155px 1fr;
 
-    padding: 3px 6px;
+    margin:
+      2px 0 4px;
   }
 
-  .score-box strong {
-    font-size: 16px;
+  .departure-side,
+  .signal-center {
+    min-height: 45px;
+  }
+
+  .departure-btn {
+    min-height: 32px;
+
+    font-size: 11px;
+  }
+
+  .departure-name {
+    font-size: 11px;
   }
 
   .rail-scene {
-    height: 205px;
+    height: 180px;
   }
 
   .control-tower {
-    top: 5px;
+    top: 3px;
 
     transform:
       translateX(-50%)
-      scale(.8);
+      scale(.73);
 
     transform-origin:
       top center;
   }
 
   .scene-message {
-    top: 60px;
+    top: 47px;
 
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .train-zone {
-    bottom: 32px;
+    bottom: 26px;
   }
 
   .engine,
   .car {
-    height: 37px;
+    height: 31px;
   }
 
   .engine {
-    width: 88px;
+    width: 76px;
   }
 
   .car {
-    width: 78px;
+    width: 66px;
+  }
+
+  .window {
+    width: 18px;
+    height: 9px;
   }
 
   .impact-zone {
-    bottom: 58px;
+    bottom: 45px;
   }
 
   .impact-mark {
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .fault {
-    font-size: 14px;
-
-    min-width: 44px;
-  }
-
-  .repair-status {
-    margin-top: 4px;
-  }
-
-  .repair-box {
-    padding: 4px 7px;
-  }
-
-  .game-panel {
-    margin-top: 4px;
-  }
-
-  .mission-card {
-    padding: 7px 9px;
-  }
-
-  #missionText {
-    margin:
-      2px 0 4px;
-
     font-size: 12px;
   }
 
-  .mission-card h2 {
-    font-size: 17px;
+  .repair-status {
+    margin-top: 3px;
   }
 
-  .mission-icon {
-    font-size: 19px;
+  .repair-box {
+    padding:
+      3px 6px;
+  }
+
+  .game-panel {
+    margin-top: 3px;
+  }
+
+  .mission-card {
+    padding: 5px 7px;
+  }
+
+  .mission-card h2 {
+    font-size: 16px;
+  }
+
+  #missionText {
+    font-size: 11px;
+
+    margin:
+      1px 0 3px;
   }
 
   .choice-btn {
-    min-height: 34px;
+    min-height: 31px;
 
-    padding: 4px 6px;
+    padding:
+      3px 5px;
 
-    font-size: 10px;
-  }
-
-  .feedback {
-    margin-top: 3px;
-
-    padding: 4px 6px;
-
-    font-size: 10px;
-  }
-
-  .speech-box {
-    margin-top: 3px;
-
-    padding: 5px;
-  }
-
-  .speech-prompt {
-    font-size: 11px;
+    font-size: 9px;
   }
 
   .team-card {
-    min-height: 51px;
+    min-height: 43px;
   }
 
   .team-icon {
-    font-size: 23px;
-  }
-
-  .team-tool {
     font-size: 20px;
   }
 
-}
-
-
-/* ======================================== */
-/* 세로 화면 */
-/* ======================================== */
-
-@media
-(max-width:850px)
-and
-(orientation:portrait) {
-
-  .game-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .team-panel {
-    display: none;
-  }
-
-  .repair-status {
-    grid-template-columns: 1fr;
+  .team-tool {
+    font-size: 18px;
   }
 
 }
