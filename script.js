@@ -1,6 +1,6 @@
-/* ======================================== */
+/* ======================================= */
 /* 등장인물 */
-/* ======================================== */
+/* ======================================= */
 
 const characters = {
 
@@ -42,9 +42,9 @@ const characters = {
 };
 
 
-/* ======================================== */
-/* 임무 */
-/* ======================================== */
+/* ======================================= */
+/* 복구 임무 */
+/* ======================================= */
 
 const missions = [
 
@@ -55,29 +55,29 @@ const missions = [
 
     icon: "🚨",
 
-    title: "두 열차가 멈췄어요",
+    title: "사고 직후 가장 먼저",
 
     characters: [
       "ajun"
     ],
 
     text:
-      "KTX-산천과 무궁화호가 저속으로 접촉한 뒤 선로 위에 멈췄어요. 가장 먼저 무엇을 해야 할까요?",
+      "KTX-산천과 무궁화호가 접촉한 뒤 멈췄어요. 가장 먼저 무엇을 해야 할까요?",
 
     choices: [
       "다른 열차가 접근하지 못하도록 신호를 정지한다",
       "어느 기차가 더 빠른지 확인한다",
-      "열차 사진을 찍는다",
-      "두 열차를 바로 다시 출발시킨다"
+      "사진부터 찍는다",
+      "두 열차를 다시 출발시킨다"
     ],
 
     answer: 0,
 
     feedback:
-      "맞아요! 사고가 생겼을 때는 다른 열차가 들어오지 못하도록 안전을 확보하는 것이 먼저예요.",
+      "맞아요! 먼저 다른 열차가 접근하지 못하도록 안전을 확보해야 해요.",
 
     speech:
-      "“모든 열차는 현재 위치에서 정지해 주세요. 선로 안전을 확인하겠습니다.”라고 말해보세요.",
+      "“모든 열차는 현재 위치에서 정지해 주세요. 안전을 확인하겠습니다.”라고 말해보세요.",
 
     progress: {
       ktx: 5,
@@ -91,11 +91,11 @@ const missions = [
   {
     phase: "2단계",
 
-    type: "우선순위",
+    type: "상황 파악",
 
-    icon: "👀",
+    icon: "🔍",
 
-    title: "어떤 고장인지 확인해요",
+    title: "고장 부위를 확인해요",
 
     characters: [
       "ajun",
@@ -103,22 +103,22 @@ const missions = [
     ],
 
     text:
-      "KTX-산천은 출입문과 전기 계통에 이상이 있고, 무궁화호는 바퀴와 선로 쪽을 확인해야 해요. 무엇을 먼저 하면 좋을까요?",
+      "KTX-산천은 출입문과 전기, 무궁화호는 바퀴와 선로를 점검해야 해요. 어떻게 하는 것이 좋을까요?",
 
     choices: [
-      "고장 위치를 확인하고 필요한 팀을 나눈다",
+      "고장 위치를 확인하고 정비팀을 나눈다",
       "모든 정비사를 한곳에 보낸다",
-      "기차 색깔부터 확인한다",
+      "열차 색깔부터 확인한다",
       "기관사에게 알아서 고치라고 한다"
     ],
 
     answer: 0,
 
     feedback:
-      "정답! 어떤 문제가 있는지 확인한 뒤 알맞은 정비팀을 보내야 해요.",
+      "정답! 문제에 맞는 정비팀을 배치해야 해요.",
 
     speech:
-      "“각 열차의 고장 위치를 확인한 뒤 정비팀을 배치해 주세요.”라고 말해보세요.",
+      "“각 열차의 고장 위치를 확인하고 필요한 정비팀을 배치해 주세요.”라고 말해보세요.",
 
     progress: {
       ktx: 10,
@@ -136,7 +136,7 @@ const missions = [
 
     icon: "🛞",
 
-    title: "무궁화호 바퀴 점검",
+    title: "무궁화호 바퀴",
 
     characters: [
       "ajun",
@@ -144,19 +144,19 @@ const missions = [
     ],
 
     text:
-      "무궁화호의 오른쪽 바퀴에서 이상이 발견됐어요. 바퀴 정비팀에게 가장 정확하게 지시한 말은 무엇일까요?",
+      "무궁화호 오른쪽 바퀴에서 문제가 발견됐어요. 가장 정확한 지시는 무엇일까요?",
 
     choices: [
       "빨리 고쳐요!",
       "무궁화호 오른쪽 바퀴를 먼저 확인해 주세요",
       "기차 좀 봐주세요",
-      "아무거나 먼저 고쳐주세요"
+      "아무거나 고쳐주세요"
     ],
 
     answer: 1,
 
     feedback:
-      "아주 좋아요! 누구에게, 어느 열차의, 어느 부분을 확인할지 정확하게 말했어요.",
+      "좋아요! 어느 열차의 어느 부분인지 정확히 말했어요.",
 
     speech:
       "“바퀴 정비팀, 무궁화호 오른쪽 바퀴를 먼저 확인해 주세요.”라고 말해보세요.",
@@ -182,7 +182,7 @@ const missions = [
 
     icon: "🚪",
 
-    title: "KTX-산천 출입문 수리",
+    title: "KTX 출입문",
 
     characters: [
       "ajun",
@@ -190,7 +190,7 @@ const missions = [
     ],
 
     text:
-      "KTX-산천의 출입문 하나가 제대로 닫히지 않아요. 출입문 정비팀에게 어떻게 말하면 좋을까요?",
+      "KTX-산천 출입문이 제대로 닫히지 않아요. 어떻게 지시하면 좋을까요?",
 
     choices: [
       "문 고쳐!",
@@ -202,7 +202,7 @@ const missions = [
     answer: 1,
 
     feedback:
-      "맞아요! 위치와 작업 내용을 분명하게 말하면 정비팀이 바로 이해할 수 있어요.",
+      "맞아요! 작업 위치를 구체적으로 알려줬어요.",
 
     speech:
       "“출입문 정비팀, KTX-산천 2호차 출입문을 확인해 주세요.”라고 말해보세요.",
@@ -228,7 +228,7 @@ const missions = [
 
     icon: "❓",
 
-    title: "정비사가 순서를 물어봐요",
+    title: "어느 열차부터 할까요?",
 
     characters: [
       "ajun",
@@ -236,7 +236,7 @@ const missions = [
     ],
 
     text:
-      "정비사가 “관제사님, KTX-산천과 무궁화호 중 어느 열차 작업을 먼저 계속할까요?”라고 물었어요. 무궁화호 바퀴 점검이 아직 끝나지 않았다면 어떻게 답할까요?",
+      "정비사가 “어느 열차 작업을 먼저 계속할까요?”라고 물었어요. 무궁화호 바퀴 작업이 남았다면 어떻게 말할까요?",
 
     choices: [
       "아무거나 하세요",
@@ -248,7 +248,7 @@ const missions = [
     answer: 1,
 
     feedback:
-      "좋아요! 질문을 듣고 현재 상황에 맞는 답을 정확하게 했어요.",
+      "좋아요! 질문에 맞게 현재 필요한 작업을 정확히 대답했어요.",
 
     speech:
       "“무궁화호 바퀴 작업을 먼저 마쳐 주세요.”라고 말해보세요.",
@@ -265,11 +265,11 @@ const missions = [
   {
     phase: "6단계",
 
-    type: "돌발 상황",
+    type: "대화 기술",
 
     icon: "📡",
 
-    title: "무전이 잘 안 들려요",
+    title: "무전이 끊겼어요",
 
     characters: [
       "ajun",
@@ -277,19 +277,19 @@ const missions = [
     ],
 
     text:
-      "정비팀이 무전으로 보고했는데 소리가 끊겨서 내용을 정확히 듣지 못했어요. 어떻게 해야 할까요?",
+      "정비팀 무전이 끊겨서 마지막 내용을 잘 못 들었어요. 어떻게 해야 할까요?",
 
     choices: [
       "대충 알아들은 척한다",
-      "마지막 내용을 다시 말해 달라고 요청한다",
-      "내 생각대로 작업을 시킨다",
+      "마지막 내용을 다시 말해 달라고 한다",
+      "내 생각대로 작업한다",
       "정비팀에게 화를 낸다"
     ],
 
     answer: 1,
 
     feedback:
-      "정답! 잘 못 들었을 때는 추측하지 않고 다시 확인하는 것이 중요해요.",
+      "맞아요! 잘 못 들었으면 다시 확인해야 해요.",
 
     speech:
       "“죄송합니다. 마지막 내용을 다시 한 번 말씀해 주세요.”라고 말해보세요.",
@@ -318,10 +318,10 @@ const missions = [
     ],
 
     text:
-      "KTX-산천의 전기 계통 점검이 필요해요. 가장 좋은 작업 지시는 무엇일까요?",
+      "KTX-산천 전기 계통 점검이 필요해요. 가장 좋은 지시는 무엇일까요?",
 
     choices: [
-      "전기팀, 알아서 해주세요",
+      "전기팀 알아서 해주세요",
       "전기 정비팀, KTX-산천 전원 계통을 점검해 주세요",
       "전기를 켜보세요",
       "무궁화호부터 보세요"
@@ -330,7 +330,7 @@ const missions = [
     answer: 1,
 
     feedback:
-      "좋아요! 담당 팀과 작업 대상을 정확히 알려줬어요.",
+      "좋아요! 담당 팀과 작업 대상을 정확히 말했어요.",
 
     speech:
       "“전기 정비팀, KTX-산천 전원 계통을 점검해 주세요.”라고 말해보세요.",
@@ -356,7 +356,7 @@ const missions = [
 
     icon: "🛤️",
 
-    title: "선로 상태 확인",
+    title: "선로 점검",
 
     characters: [
       "ajun",
@@ -364,7 +364,7 @@ const missions = [
     ],
 
     text:
-      "무궁화호 아래쪽 선로에 이상이 있는지 확인해야 해요. 어떻게 지시하는 것이 좋을까요?",
+      "무궁화호 아래쪽 선로를 점검해야 해요. 가장 좋은 지시는 무엇일까요?",
 
     choices: [
       "선로팀, 무궁화호 아래쪽 선로를 점검해 주세요",
@@ -376,7 +376,7 @@ const missions = [
     answer: 0,
 
     feedback:
-      "맞아요! 어디를 점검할지 분명하게 전달했어요.",
+      "정답! 어디를 확인할지 정확하게 전달했어요.",
 
     speech:
       "“선로 정비팀, 무궁화호 아래쪽 선로를 점검해 주세요.”라고 말해보세요.",
@@ -402,7 +402,7 @@ const missions = [
 
     icon: "🌧️",
 
-    title: "비가 오기 시작했어요",
+    title: "비가 와요",
 
     characters: [
       "ajun",
@@ -410,11 +410,11 @@ const missions = [
     ],
 
     text:
-      "수리 중 갑자기 비가 많이 오기 시작했어요. 정비팀에게 어떻게 말하면 좋을까요?",
+      "수리 도중 비가 많이 오기 시작했어요. 정비팀에게 어떻게 이야기하면 좋을까요?",
 
     choices: [
-      "빨리 끝내라고만 한다",
-      "안전을 먼저 확인하고 미끄러운 구간을 조심해 달라고 말한다",
+      "빨리 끝내라고 한다",
+      "미끄러운 구간을 조심하고 안전부터 확인해 달라고 한다",
       "비가 와도 똑같이 작업하라고 한다",
       "모두 뛰라고 한다"
     ],
@@ -422,7 +422,7 @@ const missions = [
     answer: 1,
 
     feedback:
-      "맞아요! 상황이 바뀌면 새로운 위험도 함께 알려줘야 해요.",
+      "맞아요! 상황이 달라졌다면 새로운 위험도 알려줘야 해요.",
 
     speech:
       "“비가 많이 옵니다. 미끄러운 구간을 조심하고 안전을 먼저 확인해 주세요.”라고 말해보세요.",
@@ -439,11 +439,11 @@ const missions = [
   {
     phase: "10단계",
 
-    type: "대화 기술",
+    type: "다시 설명하기",
 
     icon: "🗣️",
 
-    title: "지시를 다시 설명해요",
+    title: "정비사가 잘 이해하지 못했어요",
 
     characters: [
       "ajun",
@@ -451,7 +451,7 @@ const missions = [
     ],
 
     text:
-      "출입문 정비사가 “어느 문을 확인하라는 건지 잘 모르겠습니다.”라고 말했어요. 어떻게 다시 설명할까요?",
+      "정비사가 어느 문을 확인해야 하는지 모르겠다고 해요. 어떻게 다시 설명할까요?",
 
     choices: [
       "아까 말했잖아요!",
@@ -463,7 +463,7 @@ const missions = [
     answer: 1,
 
     feedback:
-      "아주 좋아요! 상대가 이해하지 못했을 때 더 구체적으로 다시 설명했어요.",
+      "좋아요! 상대가 이해하지 못하면 더 구체적으로 다시 설명할 수 있어요.",
 
     speech:
       "“KTX-산천 2호차 오른쪽 출입문을 확인해 주세요.”라고 말해보세요.",
@@ -484,7 +484,7 @@ const missions = [
 
     icon: "📋",
 
-    title: "현재 상황을 보고해요",
+    title: "현재 상황 보고",
 
     characters: [
       "ajun",
@@ -492,22 +492,22 @@ const missions = [
     ],
 
     text:
-      "정비 책임자가 현재 수리 상황을 물어봤어요. 가장 정확한 보고는 무엇일까요?",
+      "정비 책임자가 현재 수리 상황을 물었어요. 가장 정확한 보고는 무엇일까요?",
 
     choices: [
       "거의 다 됐어요",
-      "KTX-산천은 출입문과 전기 점검이 완료됐고, 무궁화호는 바퀴와 선로 점검이 완료됐습니다",
+      "KTX는 출입문과 전기, 무궁화호는 바퀴와 선로 점검이 완료됐습니다",
       "다 고쳤어요 아마도",
-      "정비팀이 알아서 하고 있어요"
+      "정비팀이 알아서 합니다"
     ],
 
     answer: 1,
 
     feedback:
-      "좋아요! 어떤 열차의 어떤 작업이 끝났는지 정확하게 보고했어요.",
+      "좋아요! 완료된 작업을 구체적으로 보고했어요.",
 
     speech:
-      "“KTX-산천은 출입문과 전기 점검이 완료됐고, 무궁화호는 바퀴와 선로 점검이 완료됐습니다.”라고 말해보세요.",
+      "“KTX-산천은 출입문과 전기, 무궁화호는 바퀴와 선로 점검이 완료됐습니다.”라고 말해보세요.",
 
     progress: {
       ktx: 15,
@@ -525,7 +525,7 @@ const missions = [
 
     icon: "✅",
 
-    title: "다시 출발해도 될까요?",
+    title: "다시 출발!",
 
     characters: [
       "ajun",
@@ -533,22 +533,22 @@ const missions = [
     ],
 
     text:
-      "두 열차의 수리가 모두 끝났어요. 다시 운행하기 전에 무엇을 해야 할까요?",
+      "두 열차의 수리가 끝났어요. 다시 출발하기 전에 무엇을 해야 할까요?",
 
     choices: [
       "바로 최고 속도로 출발한다",
-      "최종 안전 점검과 신호 상태를 확인한 뒤 천천히 운행을 시작한다",
+      "최종 안전 점검과 신호를 확인한 뒤 출발한다",
       "두 열차를 동시에 출발시킨다",
-      "정비팀이 떠나기 전에 무조건 출발한다"
+      "정비팀이 떠나기 전에 출발한다"
     ],
 
     answer: 1,
 
     feedback:
-      "정답! 수리가 끝난 뒤에도 마지막 안전 점검과 신호 확인이 필요해요.",
+      "정답! 마지막으로 안전 점검과 신호 확인을 해야 해요.",
 
     speech:
-      "“최종 안전 점검 완료 후 신호를 확인하고 천천히 운행을 시작해 주세요.”라고 말해보세요.",
+      "“최종 안전 점검 완료. 신호 확인 후 천천히 출발해 주세요.”라고 말해보세요.",
 
     progress: {
       ktx: 10,
@@ -563,9 +563,55 @@ const missions = [
 ];
 
 
-/* ======================================== */
-/* HTML */
-/* ======================================== */
+/* ======================================= */
+/* DOM */
+/* ======================================= */
+
+const ktxStartBtn =
+  document.getElementById("ktxStartBtn");
+
+const mugunghwaStartBtn =
+  document.getElementById("mugunghwaStartBtn");
+
+const departureSignal =
+  document.getElementById("departureSignal");
+
+const departureText =
+  document.getElementById("departureText");
+
+const impactZone =
+  document.getElementById("impactZone");
+
+const sceneMessage =
+  document.getElementById("sceneMessage");
+
+
+const ktxTrain =
+  document.getElementById("ktxTrain");
+
+const mugunghwaTrain =
+  document.getElementById("mugunghwaTrain");
+
+
+const ktxFaults =
+  document.getElementById("ktxFaults");
+
+const mugunghwaFaults =
+  document.getElementById("mugunghwaFaults");
+
+
+const ktxProgress =
+  document.getElementById("ktxProgress");
+
+const mugunghwaProgress =
+  document.getElementById("mugunghwaProgress");
+
+const ktxPercent =
+  document.getElementById("ktxPercent");
+
+const mugunghwaPercent =
+  document.getElementById("mugunghwaPercent");
+
 
 const scoreEl =
   document.getElementById("score");
@@ -621,117 +667,291 @@ const successModal =
 const restartBtn =
   document.getElementById("restartBtn");
 
-const sceneMessage =
-  document.getElementById("sceneMessage");
-
-
-/* 열차 */
-
-const ktxTrain =
-  document.getElementById("ktxTrain");
-
-const mugunghwaTrain =
-  document.getElementById("mugunghwaTrain");
-
-const ktxFaults =
-  document.getElementById("ktxFaults");
-
-const mugunghwaFaults =
-  document.getElementById("mugunghwaFaults");
-
-
-/* 진행도 */
-
-const ktxProgress =
-  document.getElementById("ktxProgress");
-
-const mugunghwaProgress =
-  document.getElementById("mugunghwaProgress");
-
-const ktxPercent =
-  document.getElementById("ktxPercent");
-
-const mugunghwaPercent =
-  document.getElementById("mugunghwaPercent");
-
-
-/* 팀 */
-
 const teamCards =
   document.querySelectorAll(".team-card");
 
 
-/* ======================================== */
+/* ======================================= */
 /* 상태 */
-/* ======================================== */
+/* ======================================= */
 
-let currentIndex =
-  0;
+let ktxDeparted = false;
 
-let currentMission =
-  null;
+let mugunghwaDeparted = false;
 
-let score =
-  0;
+let crashOccurred = false;
 
-let streak =
-  0;
+let currentIndex = 0;
 
-let ktxRepair =
-  0;
+let currentMission = null;
 
-let mugunghwaRepair =
-  0;
+let score = 0;
 
-let awaitingSpeech =
-  false;
+let streak = 0;
 
-let started =
-  false;
+let ktxRepair = 0;
+
+let mugunghwaRepair = 0;
+
+let awaitingSpeech = false;
 
 
-/* ======================================== */
-/* 시작 */
-/* ======================================== */
+/* ======================================= */
+/* KTX 출발 */
+/* ======================================= */
+
+function startKtx() {
+
+  if (
+    ktxDeparted ||
+    crashOccurred
+  ) {
+    return;
+  }
+
+  ktxDeparted = true;
+
+  ktxStartBtn.disabled =
+    true;
+
+  ktxStartBtn.classList.add(
+    "departed"
+  );
+
+  ktxStartBtn.textContent =
+    "🚄 운행 중";
+
+  ktxTrain.classList.add(
+    "departing"
+  );
+
+  departureSignal.textContent =
+    "🟢";
+
+  departureText.textContent =
+    "KTX-산천 출발!";
+
+  sceneMessage.textContent =
+    "🚄 KTX-산천이 출발했습니다.";
+
+  checkCrash();
+
+}
+
+
+/* ======================================= */
+/* 무궁화 출발 */
+/* ======================================= */
+
+function startMugunghwa() {
+
+  if (
+    mugunghwaDeparted ||
+    crashOccurred
+  ) {
+    return;
+  }
+
+  mugunghwaDeparted = true;
+
+  mugunghwaStartBtn.disabled =
+    true;
+
+  mugunghwaStartBtn.classList.add(
+    "departed"
+  );
+
+  mugunghwaStartBtn.textContent =
+    "🚆 운행 중";
+
+  mugunghwaTrain.classList.add(
+    "departing"
+  );
+
+  departureSignal.textContent =
+    "🟢";
+
+  departureText.textContent =
+    "무궁화호 출발!";
+
+  sceneMessage.textContent =
+    "🚆 무궁화호가 출발했습니다.";
+
+  checkCrash();
+
+}
+
+
+/* ======================================= */
+/* 충돌 확인 */
+/* ======================================= */
+
+function checkCrash() {
+
+  if (
+    !ktxDeparted ||
+    !mugunghwaDeparted ||
+    crashOccurred
+  ) {
+    return;
+  }
+
+
+  departureText.textContent =
+    "⚠️ 두 열차가 같은 구간으로 진입!";
+
+
+  departureSignal.textContent =
+    "🟡";
+
+
+  sceneMessage.textContent =
+    "⚠️ 같은 선로 구간으로 접근 중!";
+
+
+  setTimeout(
+    causeCrash,
+    950
+  );
+
+}
+
+
+/* ======================================= */
+/* 충돌 발생 */
+/* ======================================= */
+
+function causeCrash() {
+
+  crashOccurred =
+    true;
+
+
+  ktxTrain.classList.remove(
+    "departing"
+  );
+
+
+  mugunghwaTrain.classList.remove(
+    "departing"
+  );
+
+
+  ktxTrain.classList.add(
+    "crashed"
+  );
+
+
+  mugunghwaTrain.classList.add(
+    "crashed"
+  );
+
+
+  impactZone.classList.remove(
+    "hidden"
+  );
+
+
+  ktxFaults.classList.remove(
+    "hidden"
+  );
+
+
+  mugunghwaFaults.classList.remove(
+    "hidden"
+  );
+
+
+  departureSignal.textContent =
+    "🔴";
+
+
+  departureText.textContent =
+    "🚨 열차 정지";
+
+
+  sceneMessage.textContent =
+    "💥 접촉 발생! 두 열차가 정지했습니다.";
+
+
+  missionTypeEl.textContent =
+    "사고 발생";
+
+
+  phaseBadge.textContent =
+    "긴급";
+
+
+  missionIcon.textContent =
+    "🚨";
+
+
+  missionTitle.textContent =
+    "복구 준비!";
+
+
+  missionText.textContent =
+    "두 열차가 멈췄어요. 복구 시작 버튼을 눌러 아준 관제사의 임무를 시작하세요!";
+
+
+  startBtn.disabled =
+    false;
+
+
+  startBtn.classList.remove(
+    "disabled-start"
+  );
+
+
+  startBtn.classList.add(
+    "ready-start"
+  );
+
+}
+
+
+/* ======================================= */
+/* 게임 시작 */
+/* ======================================= */
 
 function startGame() {
 
-  started =
-    true;
+  if (
+    !crashOccurred
+  ) {
+    return;
+  }
 
-  currentIndex =
-    0;
 
-  score =
-    0;
+  currentIndex = 0;
 
-  streak =
-    0;
+  score = 0;
 
-  ktxRepair =
-    0;
+  streak = 0;
 
-  mugunghwaRepair =
-    0;
+  ktxRepair = 0;
+
+  mugunghwaRepair = 0;
+
 
   updateScore();
 
   updateRepairBars();
 
-  resetFaults();
 
   startBtn.classList.add(
     "hidden"
   );
+
 
   showMission();
 
 }
 
 
-/* ======================================== */
-/* 미션 표시 */
-/* ======================================== */
+/* ======================================= */
+/* 임무 표시 */
+/* ======================================= */
 
 function showMission() {
 
@@ -740,44 +960,53 @@ function showMission() {
       currentIndex
     ];
 
+
   awaitingSpeech =
     false;
+
 
   missionTypeEl.textContent =
     currentMission.type;
 
+
   phaseBadge.textContent =
     currentMission.phase;
+
 
   missionIcon.textContent =
     currentMission.icon;
 
+
   missionTitle.textContent =
     currentMission.title;
 
+
   missionText.textContent =
     currentMission.text;
+
 
   showCharacters(
     currentMission.characters
   );
 
+
   choiceArea.innerHTML =
     "";
+
 
   feedback.className =
     "feedback hidden";
 
-  feedback.textContent =
-    "";
 
   speechBox.classList.add(
     "hidden"
   );
 
+
   nextBtn.classList.add(
     "hidden"
   );
+
 
   clearTeamHighlights();
 
@@ -787,31 +1016,36 @@ function showMission() {
     .forEach(
       (choice,index) => {
 
-        const btn =
+        const button =
           document.createElement(
             "button"
           );
 
-        btn.type =
+
+        button.type =
           "button";
 
-        btn.className =
+
+        button.className =
           "choice-btn";
 
-        btn.textContent =
+
+        button.textContent =
           `${index + 1}. ${choice}`;
 
-        btn.addEventListener(
+
+        button.addEventListener(
           "click",
           () =>
             checkAnswer(
               index,
-              btn
+              button
             )
         );
 
+
         choiceArea.appendChild(
-          btn
+          button
         );
 
       }
@@ -820,49 +1054,55 @@ function showMission() {
 }
 
 
-/* ======================================== */
+/* ======================================= */
 /* 등장인물 */
-/* ======================================== */
+/* ======================================= */
 
-function showCharacters(
-  ids
-) {
+function showCharacters(ids) {
 
   characterArea.innerHTML =
     "";
 
-  ids.forEach(id => {
 
-    const person =
-      characters[id];
+  ids.forEach(
+    id => {
 
-    if (!person) {
-      return;
-    }
+      const person =
+        characters[id];
 
-    const chip =
-      document.createElement(
-        "span"
+
+      if (!person) {
+        return;
+      }
+
+
+      const chip =
+        document.createElement(
+          "span"
+        );
+
+
+      chip.className =
+        "character-chip";
+
+
+      chip.textContent =
+        `${person.emoji} ${person.name}`;
+
+
+      characterArea.appendChild(
+        chip
       );
 
-    chip.className =
-      "character-chip";
-
-    chip.textContent =
-      `${person.emoji} ${person.name}`;
-
-    characterArea.appendChild(
-      chip
-    );
-
-  });
+    }
+  );
 
 }
 
 
-/* ======================================== */
-/* 답 확인 */
-/* ======================================== */
+/* ======================================= */
+/* 정답 */
+/* ======================================= */
 
 function checkAnswer(
   index,
@@ -874,6 +1114,7 @@ function checkAnswer(
   ) {
     return;
   }
+
 
   const buttons =
     [
@@ -889,21 +1130,32 @@ function checkAnswer(
     currentMission.answer
   ) {
 
+
     button.classList.add(
       "correct"
     );
 
-    buttons.forEach(btn => {
-      btn.disabled = true;
-    });
+
+    buttons.forEach(
+      btn => {
+
+        btn.disabled = true;
+
+      }
+    );
+
 
     score += 1;
+
     streak += 1;
+
 
     updateScore();
 
+
     feedback.textContent =
       currentMission.feedback;
+
 
     feedback.className =
       "feedback good";
@@ -939,9 +1191,11 @@ function checkAnswer(
     speechPrompt.textContent =
       currentMission.speech;
 
+
     speechBox.classList.remove(
       "hidden"
     );
+
 
     awaitingSpeech =
       true;
@@ -950,20 +1204,26 @@ function checkAnswer(
 
   else {
 
+
     button.classList.add(
       "wrong"
     );
 
+
     button.disabled =
       true;
+
 
     streak =
       0;
 
+
     updateScore();
 
+
     feedback.textContent =
-      "다시 생각해 볼까요? 누구에게, 무엇을, 어떻게 말해야 하는지 살펴보세요.";
+      "다시 생각해 볼까요? 누구에게 무엇을 어떻게 말해야 할까요?";
+
 
     feedback.className =
       "feedback try";
@@ -973,9 +1233,9 @@ function checkAnswer(
 }
 
 
-/* ======================================== */
-/* 말하기 완료 */
-/* ======================================== */
+/* ======================================= */
+/* 말하기 끝 */
+/* ======================================= */
 
 function completeSpeech() {
 
@@ -985,8 +1245,10 @@ function completeSpeech() {
     return;
   }
 
+
   awaitingSpeech =
     false;
+
 
   speechBox.classList.add(
     "hidden"
@@ -1011,13 +1273,14 @@ function completeSpeech() {
 }
 
 
-/* ======================================== */
+/* ======================================= */
 /* 다음 */
-/* ======================================== */
+/* ======================================= */
 
 function nextMission() {
 
   currentIndex += 1;
+
 
   if (
     currentIndex >=
@@ -1030,18 +1293,17 @@ function nextMission() {
 
   }
 
+
   showMission();
 
 }
 
 
-/* ======================================== */
-/* 수리 진행도 */
-/* ======================================== */
+/* ======================================= */
+/* 진행도 */
+/* ======================================= */
 
-function applyProgress(
-  progress
-) {
+function applyProgress(progress) {
 
   ktxRepair =
     Math.min(
@@ -1064,14 +1326,15 @@ function applyProgress(
 }
 
 
-/* ======================================== */
+/* ======================================= */
 /* 진행 표시 */
-/* ======================================== */
+/* ======================================= */
 
 function updateRepairBars() {
 
   ktxProgress.style.width =
     `${ktxRepair}%`;
+
 
   mugunghwaProgress.style.width =
     `${mugunghwaRepair}%`;
@@ -1080,26 +1343,27 @@ function updateRepairBars() {
   ktxPercent.textContent =
     `${ktxRepair}%`;
 
+
   mugunghwaPercent.textContent =
     `${mugunghwaRepair}%`;
 
 }
 
 
-/* ======================================== */
-/* 팀 강조 */
-/* ======================================== */
+/* ======================================= */
+/* 정비팀 */
+/* ======================================= */
 
-function highlightTeam(
-  team
-) {
+function highlightTeam(team) {
 
   clearTeamHighlights();
+
 
   const selected =
     document.querySelector(
       `.team-card[data-team="${team}"]`
     );
+
 
   if (
     selected
@@ -1113,10 +1377,6 @@ function highlightTeam(
 
 }
 
-
-/* ======================================== */
-/* 팀 초기화 */
-/* ======================================== */
 
 function clearTeamHighlights() {
 
@@ -1133,13 +1393,11 @@ function clearTeamHighlights() {
 }
 
 
-/* ======================================== */
+/* ======================================= */
 /* 고장 수리 */
-/* ======================================== */
+/* ======================================= */
 
-function fixFault(
-  info
-) {
+function fixFault(info) {
 
   const container =
     info.train === "ktx"
@@ -1160,12 +1418,7 @@ function fixFault(
   }
 
 
-  fault.classList.add(
-    "fixed"
-  );
-
-
-  const emojiMap = {
+  const icons = {
 
     door:
       "🚪✅",
@@ -1183,99 +1436,27 @@ function fixFault(
 
 
   fault.textContent =
-    emojiMap[
+    icons[
       info.fault
     ];
 
-}
 
-
-/* ======================================== */
-/* 고장 초기화 */
-/* ======================================== */
-
-function resetFaults() {
-
-  const allFaults =
-    document.querySelectorAll(
-      ".fault"
-    );
-
-
-  allFaults.forEach(
-    fault => {
-
-      fault.classList.remove(
-        "fixed"
-      );
-
-  });
-
-
-  ktxFaults
-    .querySelector(
-      '[data-fault="door"]'
-    )
-    .textContent =
-      "🚪❌";
-
-
-  ktxFaults
-    .querySelector(
-      '[data-fault="electric"]'
-    )
-    .textContent =
-      "⚡❌";
-
-
-  mugunghwaFaults
-    .querySelector(
-      '[data-fault="wheel"]'
-    )
-    .textContent =
-      "🛞❌";
-
-
-  mugunghwaFaults
-    .querySelector(
-      '[data-fault="track"]'
-    )
-    .textContent =
-      "🛤️❌";
-
-
-  ktxTrain.classList.add(
-    "damaged"
+  fault.classList.add(
+    "fixed"
   );
-
-  ktxTrain.classList.remove(
-    "repaired"
-  );
-
-
-  mugunghwaTrain.classList.add(
-    "damaged"
-  );
-
-  mugunghwaTrain.classList.remove(
-    "repaired"
-  );
-
-
-  sceneMessage.textContent =
-    "🚆 두 열차가 저속으로 접촉했어요!";
 
 }
 
 
-/* ======================================== */
+/* ======================================= */
 /* 점수 */
-/* ======================================== */
+/* ======================================= */
 
 function updateScore() {
 
   scoreEl.textContent =
     score;
+
 
   streakEl.textContent =
     streak;
@@ -1283,9 +1464,9 @@ function updateScore() {
 }
 
 
-/* ======================================== */
-/* 읽어주기 */
-/* ======================================== */
+/* ======================================= */
+/* 읽기 */
+/* ======================================= */
 
 function speakMission() {
 
@@ -1294,6 +1475,7 @@ function speakMission() {
   ) {
     return;
   }
+
 
   if (
     !(
@@ -1304,67 +1486,71 @@ function speakMission() {
     return;
   }
 
+
   window
     .speechSynthesis
     .cancel();
 
 
-  const text =
-    `${currentMission.title}. ${currentMission.text}`;
-
-
-  const speech =
+  const utterance =
     new SpeechSynthesisUtterance(
-      text
+      `${currentMission.title}. ${currentMission.text}`
     );
 
 
-  speech.lang =
+  utterance.lang =
     "ko-KR";
 
-  speech.rate =
-    0.9;
 
-  speech.pitch =
-    1.02;
+  utterance.rate =
+    .9;
 
 
   window
     .speechSynthesis
     .speak(
-      speech
+      utterance
     );
 
 }
 
 
-/* ======================================== */
-/* 게임 완료 */
-/* ======================================== */
+/* ======================================= */
+/* 최종 복구 */
+/* ======================================= */
 
 function finishGame() {
 
   ktxRepair =
     100;
 
+
   mugunghwaRepair =
     100;
+
 
   updateRepairBars();
 
 
-  ktxTrain.classList.remove(
-    "damaged"
+  impactZone.classList.add(
+    "hidden"
   );
+
+
+  ktxTrain.classList.remove(
+    "crashed"
+  );
+
+
+  mugunghwaTrain.classList.remove(
+    "crashed"
+  );
+
 
   ktxTrain.classList.add(
     "repaired"
   );
 
-
-  mugunghwaTrain.classList.remove(
-    "damaged"
-  );
 
   mugunghwaTrain.classList.add(
     "repaired"
@@ -1372,7 +1558,36 @@ function finishGame() {
 
 
   sceneMessage.textContent =
-    "✅ 복구 완료! 안전하게 다시 출발합니다.";
+    "✅ 복구 완료! 재출발 준비!";
+
+
+  departureSignal.textContent =
+    "🟢";
+
+
+  departureText.textContent =
+    "✅ 운행 가능";
+
+
+  setTimeout(
+    () => {
+
+      sceneMessage.textContent =
+        "🚄🚆 두 열차가 다시 출발합니다!";
+
+
+      ktxTrain.classList.add(
+        "final-run"
+      );
+
+
+      mugunghwaTrain.classList.add(
+        "final-run"
+      );
+
+    },
+    700
+  );
 
 
   setTimeout(
@@ -1383,15 +1598,15 @@ function finishGame() {
       );
 
     },
-    500
+    1700
   );
 
 }
 
 
-/* ======================================== */
-/* 다시 하기 */
-/* ======================================== */
+/* ======================================= */
+/* 초기화 */
+/* ======================================= */
 
 function restartGame() {
 
@@ -1399,55 +1614,272 @@ function restartGame() {
     "hidden"
   );
 
+
+  ktxDeparted =
+    false;
+
+
+  mugunghwaDeparted =
+    false;
+
+
+  crashOccurred =
+    false;
+
+
   currentIndex =
     0;
+
 
   score =
     0;
 
+
   streak =
     0;
+
 
   ktxRepair =
     0;
 
+
   mugunghwaRepair =
     0;
+
 
   updateScore();
 
   updateRepairBars();
 
-  resetFaults();
 
-  showMission();
+  ktxTrain.className =
+    "train ktx";
+
+
+  mugunghwaTrain.className =
+    "train mugunghwa reverse";
+
+
+  impactZone.classList.add(
+    "hidden"
+  );
+
+
+  ktxFaults.classList.add(
+    "hidden"
+  );
+
+
+  mugunghwaFaults.classList.add(
+    "hidden"
+  );
+
+
+  resetFaultBadges();
+
+
+  ktxStartBtn.disabled =
+    false;
+
+
+  mugunghwaStartBtn.disabled =
+    false;
+
+
+  ktxStartBtn.classList.remove(
+    "departed"
+  );
+
+
+  mugunghwaStartBtn.classList.remove(
+    "departed"
+  );
+
+
+  ktxStartBtn.textContent =
+    "▶️ 출발";
+
+
+  mugunghwaStartBtn.textContent =
+    "▶️ 출발";
+
+
+  departureSignal.textContent =
+    "🔴";
+
+
+  departureText.textContent =
+    "두 열차를 출발시켜 보세요!";
+
+
+  sceneMessage.textContent =
+    "🚦 열차 출발 대기 중";
+
+
+  startBtn.classList.remove(
+    "hidden",
+    "ready-start"
+  );
+
+
+  startBtn.classList.add(
+    "disabled-start"
+  );
+
+
+  startBtn.disabled =
+    true;
+
+
+  nextBtn.classList.add(
+    "hidden"
+  );
+
+
+  speechBox.classList.add(
+    "hidden"
+  );
+
+
+  feedback.className =
+    "feedback hidden";
+
+
+  choiceArea.innerHTML =
+    "";
+
+
+  missionTypeEl.textContent =
+    "출발 관제";
+
+
+  phaseBadge.textContent =
+    "준비";
+
+
+  missionIcon.textContent =
+    "🚦";
+
+
+  missionTitle.textContent =
+    "열차를 출발시켜 주세요!";
+
+
+  missionText.textContent =
+    "위쪽의 KTX-산천과 무궁화호 출발 버튼을 눌러보세요.";
+
+
+  characterArea.innerHTML =
+    `<span class="character-chip">👦 아준 관제사</span>`;
+
+
+  clearTeamHighlights();
 
 }
 
 
-/* ======================================== */
-/* 버튼 연결 */
-/* ======================================== */
+/* ======================================= */
+/* 고장 아이콘 초기화 */
+/* ======================================= */
+
+function resetFaultBadges() {
+
+  const door =
+    ktxFaults.querySelector(
+      '[data-fault="door"]'
+    );
+
+
+  const electric =
+    ktxFaults.querySelector(
+      '[data-fault="electric"]'
+    );
+
+
+  const wheel =
+    mugunghwaFaults.querySelector(
+      '[data-fault="wheel"]'
+    );
+
+
+  const track =
+    mugunghwaFaults.querySelector(
+      '[data-fault="track"]'
+    );
+
+
+  door.textContent =
+    "🚪❌";
+
+
+  electric.textContent =
+    "⚡❌";
+
+
+  wheel.textContent =
+    "🛞❌";
+
+
+  track.textContent =
+    "🛤️❌";
+
+
+  document
+    .querySelectorAll(
+      ".fault"
+    )
+    .forEach(
+      fault => {
+
+        fault.classList.remove(
+          "fixed"
+        );
+
+      }
+    );
+
+}
+
+
+/* ======================================= */
+/* 버튼 */
+/* ======================================= */
+
+ktxStartBtn.addEventListener(
+  "click",
+  startKtx
+);
+
+
+mugunghwaStartBtn.addEventListener(
+  "click",
+  startMugunghwa
+);
+
 
 startBtn.addEventListener(
   "click",
   startGame
 );
 
+
 nextBtn.addEventListener(
   "click",
   nextMission
 );
+
 
 speechDoneBtn.addEventListener(
   "click",
   completeSpeech
 );
 
+
 soundBtn.addEventListener(
   "click",
   speakMission
 );
+
 
 restartBtn.addEventListener(
   "click",
