@@ -1,681 +1,639 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
+  >
 
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#10233f" />
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
 
   <title>아준 철도 복구 관제센터</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
 
 <body>
 
-  <main class="app">
+<main class="app">
 
-    <!-- =============================== -->
-    <!-- 상단 -->
-    <!-- =============================== -->
+  <!-- ================================= -->
+  <!-- 제목 -->
+  <!-- ================================= -->
 
-    <header class="topbar">
+  <header class="topbar">
 
-      <div>
-        <p class="eyebrow">
-          AJUN RAIL RECOVERY CONTROL
-        </p>
-
-        <h1>
-          🚦 아준 철도 복구 관제센터
-        </h1>
+    <div>
+      <div class="sub-title">
+        AJUN RAIL CONTROL
       </div>
 
+      <h1>
+        🚦 아준 철도 복구 관제센터
+      </h1>
+    </div>
 
-      <div class="score-area">
 
-        <div class="score-box">
-          <span>✅</span>
-          <strong id="score">0</strong>
-        </div>
+    <div class="scoreboard">
 
-        <div class="score-box">
-          <span>⭐</span>
-          <strong id="streak">0</strong>
-        </div>
-
+      <div class="score">
+        ✅
+        <strong id="score">0</strong>
       </div>
 
-    </header>
-
-
-    <!-- =============================== -->
-    <!-- 출발 관제 버튼 -->
-    <!-- =============================== -->
-
-    <section class="departure-panel">
-
-      <div class="departure-side">
-
-        <div class="departure-name">
-          🚄 KTX-산천
-        </div>
-
-        <button
-          id="ktxStartBtn"
-          class="departure-btn ktx-start-btn"
-          type="button"
-        >
-          ▶️ 출발
-        </button>
-
+      <div class="score">
+        ⭐
+        <strong id="streak">0</strong>
       </div>
 
+    </div>
 
-      <div class="signal-center">
+  </header>
 
-        <div class="signal-title">
-          🚦 관제 신호
-        </div>
 
-        <div
-          id="departureSignal"
-          class="departure-signal"
-        >
-          🔴
-        </div>
+  <!-- ================================= -->
+  <!-- 출발 버튼 -->
+  <!-- ================================= -->
 
-        <div
-          id="departureText"
-          class="departure-text"
-        >
-          두 열차를 출발시켜 보세요!
-        </div>
+  <section class="departure-panel">
 
+    <div class="departure-box">
+
+      <div class="departure-title">
+        🚄 KTX-산천
       </div>
-
-
-      <div class="departure-side">
-
-        <div class="departure-name">
-          🚆 무궁화호
-        </div>
-
-        <button
-          id="mugunghwaStartBtn"
-          class="departure-btn mugunghwa-start-btn"
-          type="button"
-        >
-          ▶️ 출발
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- =============================== -->
-    <!-- 철도 장면 -->
-    <!-- =============================== -->
-
-    <section class="rail-scene">
-
-      <div class="sky"></div>
-
-
-      <!-- 관제탑 -->
-
-      <div class="control-tower">
-
-        <div class="tower-title">
-          AJUN CONTROL
-        </div>
-
-        <div class="tower-window">
-          👦
-        </div>
-
-      </div>
-
-
-      <div
-        id="sceneMessage"
-        class="scene-message"
-      >
-        🚦 열차 출발 대기 중
-      </div>
-
-
-      <!-- =============================== -->
-      <!-- KTX 산천 -->
-      <!-- =============================== -->
-
-      <div class="train-zone ktx-zone">
-
-        <div class="train-label">
-          KTX-산천
-        </div>
-
-
-        <div
-          id="ktxTrain"
-          class="train ktx"
-        >
-
-          <div class="engine">
-
-            <span class="window"></span>
-            <span class="window"></span>
-            <span class="light"></span>
-
-          </div>
-
-
-          <div class="car">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-
-          <div class="car">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-        </div>
-
-
-        <div
-          id="ktxFaults"
-          class="fault-badges hidden"
-        >
-
-          <span
-            class="fault"
-            data-fault="door"
-          >
-            🚪❌
-          </span>
-
-          <span
-            class="fault"
-            data-fault="electric"
-          >
-            ⚡❌
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- =============================== -->
-      <!-- 충돌 -->
-      <!-- =============================== -->
-
-      <div
-        id="impactZone"
-        class="impact-zone hidden"
-      >
-
-        <div class="impact-mark">
-          💥
-        </div>
-
-        <div class="impact-text">
-          쿵!
-        </div>
-
-      </div>
-
-
-      <!-- =============================== -->
-      <!-- 무궁화호 -->
-      <!-- =============================== -->
-
-      <div class="train-zone mugunghwa-zone">
-
-        <div class="train-label">
-          무궁화호
-        </div>
-
-
-        <div
-          id="mugunghwaTrain"
-          class="train mugunghwa reverse"
-        >
-
-          <div class="engine">
-
-            <span class="window"></span>
-            <span class="window"></span>
-            <span class="light"></span>
-
-          </div>
-
-
-          <div class="car">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-
-          <div class="car">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-        </div>
-
-
-        <div
-          id="mugunghwaFaults"
-          class="fault-badges hidden"
-        >
-
-          <span
-            class="fault"
-            data-fault="wheel"
-          >
-            🛞❌
-          </span>
-
-          <span
-            class="fault"
-            data-fault="track"
-          >
-            🛤️❌
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- 선로 -->
-
-      <div class="rail rail-one"></div>
-
-      <div class="rail rail-two"></div>
-
-    </section>
-
-
-    <!-- =============================== -->
-    <!-- 복구 진행 -->
-    <!-- =============================== -->
-
-    <section class="repair-status">
-
-      <div class="repair-box">
-
-        <div class="repair-name">
-          🚄 KTX-산천
-        </div>
-
-        <div class="progress-track">
-
-          <div
-            id="ktxProgress"
-            class="progress-fill"
-            style="width:0%"
-          ></div>
-
-        </div>
-
-        <div
-          id="ktxPercent"
-          class="progress-number"
-        >
-          0%
-        </div>
-
-      </div>
-
-
-      <div class="repair-box">
-
-        <div class="repair-name">
-          🚆 무궁화호
-        </div>
-
-        <div class="progress-track">
-
-          <div
-            id="mugunghwaProgress"
-            class="progress-fill"
-            style="width:0%"
-          ></div>
-
-        </div>
-
-        <div
-          id="mugunghwaPercent"
-          class="progress-number"
-        >
-          0%
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =============================== -->
-    <!-- 게임 -->
-    <!-- =============================== -->
-
-    <section class="game-panel">
-
-
-      <div class="mission-card">
-
-        <div class="mission-top">
-
-          <span
-            id="missionType"
-            class="mission-type"
-          >
-            출발 관제
-          </span>
-
-
-          <div class="mission-top-actions">
-
-            <span
-              id="phaseBadge"
-              class="phase-badge"
-            >
-              준비
-            </span>
-
-            <button
-              id="soundBtn"
-              class="sound-btn"
-              type="button"
-            >
-              🔊
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="character-row">
-
-          <span class="character-label">
-            등장
-          </span>
-
-          <div
-            id="characterArea"
-            class="character-area"
-          >
-
-            <span class="character-chip">
-              👦 아준 관제사
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="mission-title-row">
-
-          <div
-            id="missionIcon"
-            class="mission-icon"
-          >
-            🚦
-          </div>
-
-          <h2 id="missionTitle">
-            열차를 출발시켜 주세요!
-          </h2>
-
-        </div>
-
-
-        <p id="missionText">
-          위쪽의 KTX-산천과 무궁화호 출발 버튼을 눌러보세요.
-        </p>
-
-
-        <div
-          id="choiceArea"
-          class="choices"
-        ></div>
-
-
-        <div
-          id="feedback"
-          class="feedback hidden"
-        ></div>
-
-
-        <div
-          id="speechBox"
-          class="speech-box hidden"
-        >
-
-          <div class="speech-title">
-            🎙️ 관제사처럼 말하기
-          </div>
-
-          <div
-            id="speechPrompt"
-            class="speech-prompt"
-          ></div>
-
-
-          <button
-            id="speechDoneBtn"
-            class="speech-done-btn"
-            type="button"
-          >
-            말했어요!
-          </button>
-
-        </div>
-
-
-        <div class="main-buttons">
-
-          <button
-            id="startBtn"
-            class="main-btn disabled-start"
-            type="button"
-            disabled
-          >
-            🚨 사고 후 복구 시작
-          </button>
-
-
-          <button
-            id="nextBtn"
-            class="main-btn hidden"
-            type="button"
-          >
-            다음 임무 ➜
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- =============================== -->
-      <!-- 정비팀 -->
-      <!-- =============================== -->
-
-      <aside class="team-panel">
-
-        <h3>
-          🔧 정비팀
-        </h3>
-
-
-        <div class="team-grid">
-
-          <div
-            class="team-card"
-            data-team="wheel"
-          >
-            <div class="team-icon">
-              👨‍🔧
-            </div>
-
-            <div class="team-tool">
-              🛞
-            </div>
-          </div>
-
-
-          <div
-            class="team-card"
-            data-team="door"
-          >
-            <div class="team-icon">
-              👩‍🔧
-            </div>
-
-            <div class="team-tool">
-              🚪
-            </div>
-          </div>
-
-
-          <div
-            class="team-card"
-            data-team="electric"
-          >
-            <div class="team-icon">
-              🧑‍🔧
-            </div>
-
-            <div class="team-tool">
-              ⚡
-            </div>
-          </div>
-
-
-          <div
-            class="team-card"
-            data-team="track"
-          >
-            <div class="team-icon">
-              👷
-            </div>
-
-            <div class="team-tool">
-              🛤️
-            </div>
-          </div>
-
-
-          <div
-            class="team-card"
-            data-team="radio"
-          >
-            <div class="team-icon">
-              🧑‍💻
-            </div>
-
-            <div class="team-tool">
-              📡
-            </div>
-          </div>
-
-
-          <div
-            class="team-card"
-            data-team="inspect"
-          >
-            <div class="team-icon">
-              🕵️
-            </div>
-
-            <div class="team-tool">
-              🔍
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="team-tip">
-          👀 → 🤔 → 🗣️ → 🔧
-        </div>
-
-      </aside>
-
-    </section>
-
-  </main>
-
-
-  <!-- =============================== -->
-  <!-- 성공 -->
-  <!-- =============================== -->
-
-  <div
-    id="successModal"
-    class="success-modal hidden"
-  >
-
-    <div class="success-card">
-
-      <div class="success-emoji">
-        🏆
-      </div>
-
-      <h2>
-        복구 완료!
-      </h2>
-
-      <p>
-        두 열차가 다시 안전하게 출발합니다!
-      </p>
-
-
-      <div class="final-departure">
-
-        <div>
-          🚄 ➜➜➜
-        </div>
-
-        <div>
-          🚆 ➜➜➜
-        </div>
-
-      </div>
-
 
       <button
-        id="restartBtn"
-        class="restart-btn"
+        id="ktxStartBtn"
+        class="start-train-btn ktx-button"
         type="button"
+        onclick="startKtx()"
       >
-        🔁 다시 하기
+        ▶️ 출발
       </button>
 
     </div>
 
+
+    <div class="signal-box">
+
+      <div class="signal-label">
+        🚦 관제 신호
+      </div>
+
+      <div
+        id="mainSignal"
+        class="main-signal"
+      >
+        🔴
+      </div>
+
+      <div
+        id="signalMessage"
+        class="signal-message"
+      >
+        출발 준비
+      </div>
+
+    </div>
+
+
+    <div class="departure-box">
+
+      <div class="departure-title">
+        🚆 무궁화호
+      </div>
+
+      <button
+        id="mugunghwaStartBtn"
+        class="start-train-btn mugunghwa-button"
+        type="button"
+        onclick="startMugunghwa()"
+      >
+        ▶️ 출발
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================= -->
+  <!-- 철도 화면 -->
+  <!-- ================================= -->
+
+  <section class="rail-scene">
+
+    <div class="sky"></div>
+
+
+    <!-- 관제탑 -->
+
+    <div class="control-center">
+
+      <div class="control-sign">
+        AJUN CONTROL
+      </div>
+
+      <div class="controller">
+        👦
+      </div>
+
+    </div>
+
+
+    <div
+      id="sceneMessage"
+      class="scene-message"
+    >
+      🚦 두 열차가 출발을 기다리고 있어요.
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- KTX -->
+    <!-- ================================= -->
+
+    <div class="train-area ktx-area">
+
+      <div class="train-title">
+        KTX-산천
+      </div>
+
+
+      <div
+        id="ktxTrain"
+        class="train ktx"
+      >
+
+        <div class="engine">
+
+          <div class="engine-window"></div>
+
+          <div class="head-light"></div>
+
+        </div>
+
+
+        <div class="car">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+        <div class="car">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="ktxFaults"
+        class="faults hidden"
+      >
+
+        <span
+          class="fault"
+          data-fault="door"
+        >
+          🚪❌
+        </span>
+
+        <span
+          class="fault"
+          data-fault="electric"
+        >
+          ⚡❌
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 충돌 -->
+    <!-- ================================= -->
+
+    <div
+      id="impact"
+      class="impact hidden"
+    >
+
+      <div class="impact-emoji">
+        💥
+      </div>
+
+      <div class="impact-text">
+        쿵!
+      </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 무궁화호 -->
+    <!-- ================================= -->
+
+    <div class="train-area mugunghwa-area">
+
+      <div class="train-title">
+        무궁화호
+      </div>
+
+
+      <div
+        id="mugunghwaTrain"
+        class="train mugunghwa reverse"
+      >
+
+        <div class="engine">
+
+          <div class="engine-window"></div>
+
+          <div class="head-light"></div>
+
+        </div>
+
+
+        <div class="car">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+        <div class="car">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="mugunghwaFaults"
+        class="faults hidden"
+      >
+
+        <span
+          class="fault"
+          data-fault="wheel"
+        >
+          🛞❌
+        </span>
+
+        <span
+          class="fault"
+          data-fault="track"
+        >
+          🛤️❌
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- 선로 -->
+
+    <div class="rail rail-top"></div>
+
+    <div class="rail rail-bottom"></div>
+
+  </section>
+
+
+  <!-- ================================= -->
+  <!-- 수리 진행도 -->
+  <!-- ================================= -->
+
+  <section class="repair-progress">
+
+    <div class="repair-row">
+
+      <span>
+        🚄 KTX
+      </span>
+
+      <div class="progress-bg">
+
+        <div
+          id="ktxProgress"
+          class="progress-bar"
+        ></div>
+
+      </div>
+
+      <strong id="ktxPercent">
+        0%
+      </strong>
+
+    </div>
+
+
+    <div class="repair-row">
+
+      <span>
+        🚆 무궁화
+      </span>
+
+      <div class="progress-bg">
+
+        <div
+          id="mugunghwaProgress"
+          class="progress-bar"
+        ></div>
+
+      </div>
+
+      <strong id="mugunghwaPercent">
+        0%
+      </strong>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================= -->
+  <!-- 게임 -->
+  <!-- ================================= -->
+
+  <section class="game-panel">
+
+
+    <!-- 문제 -->
+
+    <div class="mission-card">
+
+      <div class="mission-header">
+
+        <span
+          id="missionType"
+          class="mission-type"
+        >
+          출발 관제
+        </span>
+
+        <div>
+
+          <span
+            id="phaseBadge"
+            class="phase"
+          >
+            준비
+          </span>
+
+          <button
+            id="soundBtn"
+            class="sound-button"
+            type="button"
+          >
+            🔊
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="characterArea"
+        class="characters"
+      >
+        👦 아준 관제사
+      </div>
+
+
+      <div class="mission-title">
+
+        <span id="missionIcon">
+          🚦
+        </span>
+
+        <h2 id="missionTitle">
+          열차를 출발시켜 보세요!
+        </h2>
+
+      </div>
+
+
+      <p id="missionText">
+        위쪽의 출발 버튼을 각각 눌러 KTX-산천과 무궁화호를 출발시켜 주세요.
+      </p>
+
+
+      <div
+        id="choiceArea"
+        class="choices"
+      ></div>
+
+
+      <div
+        id="feedback"
+        class="feedback hidden"
+      ></div>
+
+
+      <div
+        id="speechBox"
+        class="speech-box hidden"
+      >
+
+        <div class="speech-title">
+          🎙️ 관제사처럼 말하기
+        </div>
+
+        <div
+          id="speechPrompt"
+          class="speech-text"
+        ></div>
+
+
+        <button
+          id="speechDoneBtn"
+          class="speech-button"
+          type="button"
+        >
+          말했어요!
+        </button>
+
+      </div>
+
+
+      <div class="bottom-buttons">
+
+        <button
+          id="repairStartBtn"
+          class="repair-start-button"
+          type="button"
+          disabled
+        >
+          🔒 사고 후 복구 시작
+        </button>
+
+
+        <button
+          id="nextBtn"
+          class="next-button hidden"
+          type="button"
+        >
+          다음 임무 ➜
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- 정비팀 -->
+    <!-- ================================= -->
+
+    <aside class="team-panel">
+
+      <h3>
+        🔧 정비팀
+      </h3>
+
+
+      <div class="teams">
+
+        <div
+          class="team"
+          data-team="wheel"
+        >
+          👨‍🔧
+          🛞
+        </div>
+
+        <div
+          class="team"
+          data-team="door"
+        >
+          👩‍🔧
+          🚪
+        </div>
+
+        <div
+          class="team"
+          data-team="electric"
+        >
+          🧑‍🔧
+          ⚡
+        </div>
+
+        <div
+          class="team"
+          data-team="track"
+        >
+          👷
+          🛤️
+        </div>
+
+        <div
+          class="team"
+          data-team="radio"
+        >
+          🧑‍💻
+          📡
+        </div>
+
+        <div
+          class="team"
+          data-team="inspect"
+        >
+          🕵️
+          🔍
+        </div>
+
+      </div>
+
+
+      <div class="team-guide">
+        👀 → 🤔 → 🗣️ → 🔧
+      </div>
+
+    </aside>
+
+  </section>
+
+</main>
+
+
+<!-- ================================= -->
+<!-- 성공 팝업 -->
+<!-- ================================= -->
+
+<div
+  id="successModal"
+  class="success-modal hidden"
+>
+
+  <div class="success-card">
+
+    <div class="success-icon">
+      🏆
+    </div>
+
+    <h2>
+      복구 완료!
+    </h2>
+
+    <p>
+      KTX-산천과 무궁화호가 다시 안전하게 출발합니다!
+    </p>
+
+
+    <div class="success-trains">
+
+      <span>
+        🚄💨
+      </span>
+
+      <span>
+        🚆💨
+      </span>
+
+    </div>
+
+
+    <button
+      id="restartBtn"
+      type="button"
+      class="restart-button"
+    >
+      🔁 다시 하기
+    </button>
+
   </div>
 
+</div>
 
-  <script src="script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
