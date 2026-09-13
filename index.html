@@ -8,31 +8,25 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
 
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
   <title>아준 철도 복구 관제센터</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<main class="app">
+<div class="app">
 
-  <!-- ================================= -->
-  <!-- 제목 -->
-  <!-- ================================= -->
+  <!-- ============================== -->
+  <!-- HEADER -->
+  <!-- ============================== -->
 
-  <header class="topbar">
+  <header class="top-header">
 
-    <div>
-      <div class="sub-title">
+    <div class="title-wrap">
+      <div class="mini-title">
         AJUN RAIL CONTROL
       </div>
 
@@ -42,14 +36,14 @@
     </div>
 
 
-    <div class="scoreboard">
+    <div class="score-wrap">
 
-      <div class="score">
+      <div class="score-box">
         ✅
         <strong id="score">0</strong>
       </div>
 
-      <div class="score">
+      <div class="score-box">
         ⭐
         <strong id="streak">0</strong>
       </div>
@@ -59,66 +53,64 @@
   </header>
 
 
-  <!-- ================================= -->
+  <!-- ============================== -->
   <!-- 출발 버튼 -->
-  <!-- ================================= -->
+  <!-- ============================== -->
 
   <section class="departure-panel">
 
-    <div class="departure-box">
+    <div class="departure-card">
 
-      <div class="departure-title">
+      <div class="train-button-name">
         🚄 KTX-산천
       </div>
 
       <button
         id="ktxStartBtn"
-        class="start-train-btn ktx-button"
+        class="depart-btn ktx-btn"
         type="button"
-        onclick="startKtx()"
       >
-        ▶️ 출발
+        ▶ 출발
       </button>
 
     </div>
 
 
-    <div class="signal-box">
+    <div class="main-signal-box">
 
-      <div class="signal-label">
-        🚦 관제 신호
+      <div class="signal-small-title">
+        관제 신호
       </div>
 
       <div
-        id="mainSignal"
-        class="main-signal"
+        id="signalIcon"
+        class="signal-icon"
       >
         🔴
       </div>
 
       <div
-        id="signalMessage"
-        class="signal-message"
+        id="signalText"
+        class="signal-text"
       >
-        출발 준비
+        출발 대기
       </div>
 
     </div>
 
 
-    <div class="departure-box">
+    <div class="departure-card">
 
-      <div class="departure-title">
+      <div class="train-button-name">
         🚆 무궁화호
       </div>
 
       <button
         id="mugunghwaStartBtn"
-        class="start-train-btn mugunghwa-button"
+        class="depart-btn mugunghwa-btn"
         type="button"
-        onclick="startMugunghwa()"
       >
-        ▶️ 출발
+        ▶ 출발
       </button>
 
     </div>
@@ -126,24 +118,24 @@
   </section>
 
 
-  <!-- ================================= -->
-  <!-- 철도 화면 -->
-  <!-- ================================= -->
+  <!-- ============================== -->
+  <!-- 기차 화면 -->
+  <!-- ============================== -->
 
   <section class="rail-scene">
 
     <div class="sky"></div>
 
 
-    <!-- 관제탑 -->
+    <!-- 관제실 -->
 
-    <div class="control-center">
+    <div class="control-room">
 
-      <div class="control-sign">
+      <div class="control-label">
         AJUN CONTROL
       </div>
 
-      <div class="controller">
+      <div class="control-window">
         👦
       </div>
 
@@ -158,16 +150,19 @@
     </div>
 
 
-    <!-- ================================= -->
+    <!-- 선로 -->
+
+    <div class="track track1"></div>
+    <div class="track track2"></div>
+
+
     <!-- KTX -->
-    <!-- ================================= -->
 
-    <div class="train-area ktx-area">
+    <div class="train-zone ktx-zone">
 
-      <div class="train-title">
+      <div class="train-name">
         KTX-산천
       </div>
-
 
       <div
         id="ktxTrain"
@@ -175,29 +170,20 @@
       >
 
         <div class="engine">
-
-          <div class="engine-window"></div>
-
-          <div class="head-light"></div>
-
+          <div class="window"></div>
+          <div class="headlight"></div>
         </div>
 
-
         <div class="car">
-
           <span></span>
           <span></span>
           <span></span>
-
         </div>
 
-
         <div class="car">
-
           <span></span>
           <span></span>
           <span></span>
-
         </div>
 
       </div>
@@ -205,58 +191,38 @@
 
       <div
         id="ktxFaults"
-        class="faults hidden"
+        class="fault-row hidden"
       >
-
-        <span
-          class="fault"
-          data-fault="door"
-        >
-          🚪❌
-        </span>
-
-        <span
-          class="fault"
-          data-fault="electric"
-        >
-          ⚡❌
-        </span>
-
+        <span id="faultDoor" class="fault">🚪❌</span>
+        <span id="faultElectric" class="fault">⚡❌</span>
       </div>
 
     </div>
 
 
-    <!-- ================================= -->
     <!-- 충돌 -->
-    <!-- ================================= -->
 
     <div
       id="impact"
       class="impact hidden"
     >
-
-      <div class="impact-emoji">
+      <div class="boom">
         💥
       </div>
 
-      <div class="impact-text">
+      <div class="boom-text">
         쿵!
       </div>
-
     </div>
 
 
-    <!-- ================================= -->
-    <!-- 무궁화호 -->
-    <!-- ================================= -->
+    <!-- 무궁화 -->
 
-    <div class="train-area mugunghwa-area">
+    <div class="train-zone mugunghwa-zone">
 
-      <div class="train-title">
+      <div class="train-name">
         무궁화호
       </div>
-
 
       <div
         id="mugunghwaTrain"
@@ -264,29 +230,20 @@
       >
 
         <div class="engine">
-
-          <div class="engine-window"></div>
-
-          <div class="head-light"></div>
-
+          <div class="window"></div>
+          <div class="headlight"></div>
         </div>
 
-
         <div class="car">
-
           <span></span>
           <span></span>
           <span></span>
-
         </div>
 
-
         <div class="car">
-
           <span></span>
           <span></span>
           <span></span>
-
         </div>
 
       </div>
@@ -294,101 +251,83 @@
 
       <div
         id="mugunghwaFaults"
-        class="faults hidden"
+        class="fault-row hidden"
       >
-
-        <span
-          class="fault"
-          data-fault="wheel"
-        >
-          🛞❌
-        </span>
-
-        <span
-          class="fault"
-          data-fault="track"
-        >
-          🛤️❌
-        </span>
-
+        <span id="faultWheel" class="fault">🛞❌</span>
+        <span id="faultTrack" class="fault">🛤️❌</span>
       </div>
 
     </div>
 
-
-    <!-- 선로 -->
-
-    <div class="rail rail-top"></div>
-
-    <div class="rail rail-bottom"></div>
-
   </section>
 
 
-  <!-- ================================= -->
+  <!-- ============================== -->
   <!-- 수리 진행도 -->
-  <!-- ================================= -->
+  <!-- ============================== -->
 
-  <section class="repair-progress">
+  <section class="repair-status">
 
-    <div class="repair-row">
+    <div class="repair-line">
 
-      <span>
+      <div class="repair-name">
         🚄 KTX
-      </span>
+      </div>
 
       <div class="progress-bg">
-
         <div
           id="ktxProgress"
-          class="progress-bar"
+          class="progress-fill"
         ></div>
-
       </div>
 
-      <strong id="ktxPercent">
+      <div
+        id="ktxPercent"
+        class="percent"
+      >
         0%
-      </strong>
+      </div>
 
     </div>
 
 
-    <div class="repair-row">
+    <div class="repair-line">
 
-      <span>
+      <div class="repair-name">
         🚆 무궁화
-      </span>
-
-      <div class="progress-bg">
-
-        <div
-          id="mugunghwaProgress"
-          class="progress-bar"
-        ></div>
-
       </div>
 
-      <strong id="mugunghwaPercent">
+      <div class="progress-bg">
+        <div
+          id="mugunghwaProgress"
+          class="progress-fill"
+        ></div>
+      </div>
+
+      <div
+        id="mugunghwaPercent"
+        class="percent"
+      >
         0%
-      </strong>
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- ================================= -->
-  <!-- 게임 -->
-  <!-- ================================= -->
+  <!-- ============================== -->
+  <!-- 아래 게임 영역 -->
+  <!-- ============================== -->
 
-  <section class="game-panel">
+  <section class="game-area">
 
 
     <!-- 문제 -->
 
     <div class="mission-card">
 
-      <div class="mission-header">
+      <div class="mission-head">
 
         <span
           id="missionType"
@@ -397,7 +336,7 @@
           출발 관제
         </span>
 
-        <div>
+        <div class="mission-right">
 
           <span
             id="phaseBadge"
@@ -408,7 +347,7 @@
 
           <button
             id="soundBtn"
-            class="sound-button"
+            class="sound-btn"
             type="button"
           >
             🔊
@@ -421,17 +360,20 @@
 
       <div
         id="characterArea"
-        class="characters"
+        class="character-area"
       >
         👦 아준 관제사
       </div>
 
 
-      <div class="mission-title">
+      <div class="mission-title-row">
 
-        <span id="missionIcon">
+        <div
+          id="missionIcon"
+          class="mission-icon"
+        >
           🚦
-        </span>
+        </div>
 
         <h2 id="missionTitle">
           열차를 출발시켜 보세요!
@@ -441,13 +383,13 @@
 
 
       <p id="missionText">
-        위쪽의 출발 버튼을 각각 눌러 KTX-산천과 무궁화호를 출발시켜 주세요.
+        위쪽의 두 출발 버튼을 하나씩 눌러보세요.
       </p>
 
 
       <div
         id="choiceArea"
-        class="choices"
+        class="choice-area"
       ></div>
 
 
@@ -462,19 +404,18 @@
         class="speech-box hidden"
       >
 
-        <div class="speech-title">
+        <div class="speech-label">
           🎙️ 관제사처럼 말하기
         </div>
 
         <div
-          id="speechPrompt"
+          id="speechText"
           class="speech-text"
         ></div>
 
-
         <button
           id="speechDoneBtn"
-          class="speech-button"
+          class="speech-done"
           type="button"
         >
           말했어요!
@@ -487,17 +428,16 @@
 
         <button
           id="repairStartBtn"
-          class="repair-start-button"
+          class="repair-start locked"
           type="button"
           disabled
         >
-          🔒 사고 후 복구 시작
+          🔒 복구 시작
         </button>
-
 
         <button
           id="nextBtn"
-          class="next-button hidden"
+          class="next-btn hidden"
           type="button"
         >
           다음 임무 ➜
@@ -508,9 +448,7 @@
     </div>
 
 
-    <!-- ================================= -->
     <!-- 정비팀 -->
-    <!-- ================================= -->
 
     <aside class="team-panel">
 
@@ -518,59 +456,62 @@
         🔧 정비팀
       </h3>
 
-
-      <div class="teams">
+      <div class="team-grid">
 
         <div
-          class="team"
+          class="team-card"
           data-team="wheel"
         >
-          👨‍🔧
-          🛞
+          <span>👨‍🔧</span>
+          <span>🛞</span>
         </div>
 
+
         <div
-          class="team"
+          class="team-card"
           data-team="door"
         >
-          👩‍🔧
-          🚪
+          <span>👩‍🔧</span>
+          <span>🚪</span>
         </div>
 
+
         <div
-          class="team"
+          class="team-card"
           data-team="electric"
         >
-          🧑‍🔧
-          ⚡
+          <span>🧑‍🔧</span>
+          <span>⚡</span>
         </div>
 
+
         <div
-          class="team"
+          class="team-card"
           data-team="track"
         >
-          👷
-          🛤️
+          <span>👷</span>
+          <span>🛤️</span>
         </div>
 
+
         <div
-          class="team"
+          class="team-card"
           data-team="radio"
         >
-          🧑‍💻
-          📡
+          <span>🧑‍💻</span>
+          <span>📡</span>
         </div>
 
+
         <div
-          class="team"
+          class="team-card"
           data-team="inspect"
         >
-          🕵️
-          🔍
+          <span>🕵️</span>
+          <span>🔍</span>
         </div>
 
       </div>
-
 
       <div class="team-guide">
         👀 → 🤔 → 🗣️ → 🔧
@@ -580,12 +521,12 @@
 
   </section>
 
-</main>
+</div>
 
 
-<!-- ================================= -->
+<!-- ============================== -->
 <!-- 성공 팝업 -->
-<!-- ================================= -->
+<!-- ============================== -->
 
 <div
   id="successModal"
@@ -603,27 +544,17 @@
     </h2>
 
     <p>
-      KTX-산천과 무궁화호가 다시 안전하게 출발합니다!
+      두 열차가 다시 안전하게 운행할 수 있어요!
     </p>
 
-
     <div class="success-trains">
-
-      <span>
-        🚄💨
-      </span>
-
-      <span>
-        🚆💨
-      </span>
-
+      🚄💨 &nbsp;&nbsp; 🚆💨
     </div>
-
 
     <button
       id="restartBtn"
+      class="restart-btn"
       type="button"
-      class="restart-button"
     >
       🔁 다시 하기
     </button>
