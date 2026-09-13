@@ -1,0 +1,1371 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+:root {
+  --navy: #10233f;
+  --blue: #266cd3;
+  --green: #2ca96d;
+  --red: #df4c4c;
+  --yellow: #f4bd3b;
+  --text: #16233d;
+  --light: #f4f8fd;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #e9f3ff,
+      #f8fbff
+    );
+
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  width: min(1400px,100%);
+  margin: 0 auto;
+
+  padding:
+    8px
+    max(12px,env(safe-area-inset-right))
+    max(8px,env(safe-area-inset-bottom))
+    max(12px,env(safe-area-inset-left));
+}
+
+
+/* ======================================== */
+/* 상단 */
+/* ======================================== */
+
+.topbar {
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+
+  color: #397cba;
+}
+
+h1 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      22px,
+      2.6vw,
+      32px
+    );
+
+  line-height: 1;
+}
+
+.score-area {
+  display: flex;
+  gap: 6px;
+}
+
+.score-box {
+  min-width: 67px;
+
+  padding: 5px 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 16px
+    rgba(31,77,124,.12);
+}
+
+.score-box strong {
+  font-size: 19px;
+}
+
+
+/* ======================================== */
+/* 철도 장면 */
+/* ======================================== */
+
+.rail-scene {
+  position: relative;
+
+  height: 270px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      #8ccaf1 0 56%,
+      #88ba6d 56% 100%
+    );
+
+  border:
+    4px solid
+    rgba(255,255,255,.85);
+
+  box-shadow:
+    0 12px 32px
+    rgba(34,84,135,.17);
+}
+
+.sky {
+  position: absolute;
+  inset: 0 0 44%;
+
+  background:
+    linear-gradient(
+      #73bdeb,
+      #c6e9fa
+    );
+}
+
+
+/* ======================================== */
+/* 관제탑 */
+/* ======================================== */
+
+.control-tower {
+  position: absolute;
+
+  left: 50%;
+  top: 12px;
+
+  transform:
+    translateX(-50%);
+
+  width: 145px;
+
+  z-index: 4;
+}
+
+.tower-title {
+  padding: 4px;
+
+  border-radius:
+    7px 7px 0 0;
+
+  background: #143e6c;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.tower-window {
+  height: 62px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    5px solid
+    #536f87;
+
+  background:
+    linear-gradient(
+      #bce8fb,
+      #7ac6ea
+    );
+
+  font-size: 35px;
+}
+
+
+/* ======================================== */
+/* 메시지 */
+/* ======================================== */
+
+.scene-message {
+  position: absolute;
+
+  left: 50%;
+  top: 89px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 15;
+
+  padding:
+    5px 13px;
+
+  border-radius: 99px;
+
+  background:
+    rgba(16,35,63,.86);
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+
+/* ======================================== */
+/* 열차 구역 */
+/* ======================================== */
+
+.train-zone {
+  position: absolute;
+
+  bottom: 43px;
+
+  width: 42%;
+
+  z-index: 8;
+}
+
+.ktx-zone {
+  left: 3%;
+}
+
+.mugunghwa-zone {
+  right: 3%;
+}
+
+.train-label {
+  margin-bottom: 3px;
+
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 950;
+
+  color: #17334f;
+}
+
+
+/* ======================================== */
+/* 열차 */
+/* ======================================== */
+
+.train {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 3px;
+
+  transition:
+    transform .45s ease,
+    opacity .35s ease;
+}
+
+.train.reverse {
+  flex-direction: row-reverse;
+}
+
+.engine,
+.car {
+  position: relative;
+
+  height: 47px;
+
+  border:
+    3px solid
+    #26384d;
+}
+
+.engine {
+  width: 115px;
+}
+
+.car {
+  width: 104px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-evenly;
+}
+
+.car span,
+.window {
+  background: #91d1ec;
+
+  border:
+    2px solid
+    #28445e;
+}
+
+.car span {
+  width: 21px;
+  height: 13px;
+
+  border-radius: 3px;
+}
+
+.window {
+  position: relative;
+
+  display: inline-block;
+
+  width: 27px;
+  height: 13px;
+
+  margin:
+    9px 2px 0 10px;
+
+  border-radius: 6px;
+}
+
+.light {
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  bottom: 7px;
+  left: 7px;
+
+  border-radius: 50%;
+
+  background: #ffe26b;
+
+  box-shadow:
+    0 0 10px
+    #ffe26b;
+}
+
+.reverse .light {
+  left: auto;
+  right: 7px;
+}
+
+
+/* KTX 산천 */
+
+.ktx .engine,
+.ktx .car {
+  background:
+    linear-gradient(
+      #fafafa 0 56%,
+      #2468b3 56% 69%,
+      #e34848 69% 76%,
+      #ededed 76%
+    );
+}
+
+.ktx .engine {
+  border-radius:
+    31px 8px 6px 6px;
+}
+
+
+/* 무궁화 */
+
+.mugunghwa .engine,
+.mugunghwa .car {
+  background:
+    linear-gradient(
+      #f7f7f7 0 54%,
+      #dc4149 54% 75%,
+      #2865ad 75%
+    );
+}
+
+.mugunghwa .engine {
+  border-radius:
+    8px 28px 6px 6px;
+}
+
+
+/* 사고 상태 */
+
+.train.damaged.ktx {
+  transform:
+    rotate(2deg)
+    translateX(6px);
+}
+
+.train.damaged.mugunghwa {
+  transform:
+    rotate(-2deg)
+    translateX(-6px);
+}
+
+.train.repaired {
+  transform:
+    rotate(0)
+    translateX(0);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(60,210,112,.65)
+    );
+}
+
+
+/* ======================================== */
+/* 고장 표시 */
+/* ======================================== */
+
+.fault-badges {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 5px;
+}
+
+.fault {
+  min-width: 54px;
+
+  padding: 4px 7px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,.9);
+
+  text-align: center;
+
+  font-size: 18px;
+
+  box-shadow:
+    0 3px 10px
+    rgba(0,0,0,.11);
+}
+
+.fault.fixed {
+  background: #e4faec;
+
+  box-shadow:
+    0 0 10px
+    rgba(55,194,105,.28);
+}
+
+
+/* ======================================== */
+/* 충돌 표시 */
+/* ======================================== */
+
+.impact-zone {
+  position: absolute;
+
+  left: 50%;
+  bottom: 78px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 20;
+
+  text-align: center;
+}
+
+.impact-mark {
+  font-size: 52px;
+
+  animation:
+    impactPulse
+    .9s ease-in-out
+    infinite alternate;
+}
+
+.impact-text {
+  margin-top: -12px;
+
+  padding: 2px 9px;
+
+  border-radius: 99px;
+
+  background: #fff;
+
+  font-size: 13px;
+  font-weight: 950;
+}
+
+@keyframes impactPulse {
+
+  from {
+    transform: scale(.9);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+
+}
+
+
+/* ======================================== */
+/* 선로 */
+/* ======================================== */
+
+.rail {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: #555f67;
+}
+
+.rail-one {
+  bottom: 35px;
+}
+
+.rail-two {
+  bottom: 20px;
+}
+
+
+/* ======================================== */
+/* 수리 상태 */
+/* ======================================== */
+
+.repair-status {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 7px;
+}
+
+.repair-box {
+  display: grid;
+
+  grid-template-columns:
+    110px 1fr 42px;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 10px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 15px
+    rgba(35,72,120,.09);
+}
+
+.repair-name {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.progress-track {
+  height: 13px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background: #e3eaf3;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 99px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #36b46f,
+      #75dc9d
+    );
+
+  transition:
+    width .5s ease;
+}
+
+.progress-number {
+  text-align: right;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+
+/* ======================================== */
+/* 게임 패널 */
+/* ======================================== */
+
+.game-panel {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,2.4fr)
+    minmax(220px,.6fr);
+
+  gap: 8px;
+
+  margin-top: 7px;
+}
+
+.mission-card,
+.team-panel {
+  background: white;
+
+  border:
+    1px solid
+    #dbe4ef;
+
+  box-shadow:
+    0 7px 20px
+    rgba(34,73,122,.09);
+}
+
+.mission-card {
+  padding: 11px 13px;
+
+  border-radius: 18px;
+}
+
+.team-panel {
+  padding: 10px;
+
+  border-radius: 18px;
+}
+
+
+/* ======================================== */
+/* 미션 상단 */
+/* ======================================== */
+
+.mission-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.mission-type,
+.phase-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 25px;
+
+  padding: 3px 9px;
+
+  border-radius: 99px;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.mission-type {
+  background: #eaf3ff;
+
+  color: #215c9f;
+}
+
+.phase-badge {
+  background: #fff1cf;
+
+  color: #90600d;
+}
+
+.mission-top-actions {
+  display: flex;
+
+  gap: 5px;
+
+  align-items: center;
+}
+
+.sound-btn {
+  border: 0;
+
+  min-width: 34px;
+  height: 29px;
+
+  border-radius: 9px;
+
+  background: #edf2f7;
+
+  font-size: 16px;
+}
+
+
+/* ======================================== */
+/* 등장인물 */
+/* ======================================== */
+
+.character-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 5px;
+}
+
+.character-label {
+  font-size: 9px;
+
+  color: #6e7886;
+
+  font-weight: 850;
+}
+
+.character-area {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 4px;
+}
+
+.character-chip {
+  padding: 2px 7px;
+
+  border-radius: 99px;
+
+  background: #fff0db;
+
+  color: #7c511a;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+/* ======================================== */
+/* 문제 */
+/* ======================================== */
+
+.mission-title-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 4px;
+}
+
+.mission-icon {
+  font-size: 24px;
+}
+
+.mission-card h2 {
+  margin: 0;
+
+  font-size:
+    clamp(
+      19px,
+      1.9vw,
+      26px
+    );
+}
+
+#missionText {
+  margin:
+    3px 0 7px;
+
+  font-size:
+    clamp(
+      14px,
+      1.4vw,
+      19px
+    );
+
+  line-height: 1.32;
+
+  font-weight: 800;
+}
+
+
+/* ======================================== */
+/* 선택지 */
+/* ======================================== */
+
+.choices {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap: 6px;
+}
+
+.choice-btn {
+  min-height: 44px;
+
+  padding: 7px 9px;
+
+  border:
+    2px solid
+    #dce5ef;
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  color: var(--text);
+
+  font-size:
+    clamp(
+      12px,
+      1.1vw,
+      15px
+    );
+
+  font-weight: 850;
+
+  line-height: 1.25;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.choice-btn.correct {
+  border-color: #2fac6a;
+
+  background: #eaf9f0;
+}
+
+.choice-btn.wrong {
+  border-color: #df5757;
+
+  background: #fff0f0;
+}
+
+
+/* ======================================== */
+/* 피드백 */
+/* ======================================== */
+
+.feedback {
+  margin-top: 6px;
+
+  padding: 6px 8px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  line-height: 1.3;
+
+  font-weight: 850;
+}
+
+.feedback.good {
+  background: #e9f9ef;
+
+  color: #167044;
+}
+
+.feedback.try {
+  background: #fff4df;
+
+  color: #97630f;
+}
+
+
+/* ======================================== */
+/* 말하기 */
+/* ======================================== */
+
+.speech-box {
+  margin-top: 6px;
+
+  padding: 8px;
+
+  border:
+    2px dashed
+    #7fa9dc;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef6ff,
+      #f8f1ff
+    );
+}
+
+.speech-title {
+  font-size: 11px;
+
+  font-weight: 900;
+
+  color: #325e96;
+}
+
+.speech-prompt {
+  margin:
+    4px 0 6px;
+
+  font-size: 13px;
+
+  font-weight: 850;
+
+  line-height: 1.3;
+}
+
+.speech-done-btn {
+  width: 100%;
+
+  min-height: 34px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  background: #7059c7;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* ======================================== */
+/* 메인 버튼 */
+/* ======================================== */
+
+.main-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 7px;
+}
+
+.main-btn {
+  min-width: 180px;
+
+  min-height: 39px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2370d9,
+      #4c92ee
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 950;
+
+  box-shadow:
+    0 5px 13px
+    rgba(35,112,217,.22);
+}
+
+
+/* ======================================== */
+/* 팀 패널 */
+/* ======================================== */
+
+.team-panel h3 {
+  margin:
+    0 0 8px;
+
+  font-size: 16px;
+}
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap: 6px;
+}
+
+.team-card {
+  min-height: 68px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  border-radius: 12px;
+
+  background: #f4f7fb;
+
+  border:
+    2px solid
+    #e1e8f0;
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+.team-card.active {
+  transform:
+    translateY(-4px);
+
+  background: #e9f9ef;
+
+  border-color: #36b46f;
+}
+
+.team-icon {
+  font-size: 29px;
+}
+
+.team-tool {
+  font-size: 25px;
+}
+
+.team-tip {
+  margin-top: 8px;
+
+  padding: 7px;
+
+  border-radius: 10px;
+
+  background: #fff4d8;
+
+  text-align: center;
+
+  font-size: 18px;
+}
+
+
+/* ======================================== */
+/* 성공창 */
+/* ======================================== */
+
+.success-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 50;
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+    rgba(10,24,42,.38);
+
+  backdrop-filter:
+    blur(5px);
+}
+
+.success-card {
+  width:
+    min(420px,85vw);
+
+  padding: 28px;
+
+  border-radius: 26px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.25);
+}
+
+.success-emoji {
+  font-size: 65px;
+}
+
+.success-card h2 {
+  margin:
+    3px 0 7px;
+
+  font-size: 28px;
+}
+
+.success-card p {
+  margin:
+    0 0 15px;
+
+  line-height: 1.5;
+
+  font-weight: 750;
+}
+
+.restart-btn {
+  min-width: 180px;
+
+  min-height: 45px;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  background: #2f78da;
+
+  color: white;
+
+  font-weight: 900;
+}
+
+
+/* ======================================== */
+/* 숨김 */
+/* ======================================== */
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ======================================== */
+/* 아이패드 가로 */
+/* ======================================== */
+
+@media
+(max-height:850px)
+and
+(orientation:landscape) {
+
+  .app {
+    padding-top: 4px;
+  }
+
+  .topbar {
+    min-height: 40px;
+  }
+
+  .eyebrow {
+    display: none;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .score-box {
+    min-width: 55px;
+
+    padding: 3px 6px;
+  }
+
+  .score-box strong {
+    font-size: 16px;
+  }
+
+  .rail-scene {
+    height: 205px;
+  }
+
+  .control-tower {
+    top: 5px;
+
+    transform:
+      translateX(-50%)
+      scale(.8);
+
+    transform-origin:
+      top center;
+  }
+
+  .scene-message {
+    top: 60px;
+
+    font-size: 10px;
+  }
+
+  .train-zone {
+    bottom: 32px;
+  }
+
+  .engine,
+  .car {
+    height: 37px;
+  }
+
+  .engine {
+    width: 88px;
+  }
+
+  .car {
+    width: 78px;
+  }
+
+  .impact-zone {
+    bottom: 58px;
+  }
+
+  .impact-mark {
+    font-size: 40px;
+  }
+
+  .fault {
+    font-size: 14px;
+
+    min-width: 44px;
+  }
+
+  .repair-status {
+    margin-top: 4px;
+  }
+
+  .repair-box {
+    padding: 4px 7px;
+  }
+
+  .game-panel {
+    margin-top: 4px;
+  }
+
+  .mission-card {
+    padding: 7px 9px;
+  }
+
+  #missionText {
+    margin:
+      2px 0 4px;
+
+    font-size: 12px;
+  }
+
+  .mission-card h2 {
+    font-size: 17px;
+  }
+
+  .mission-icon {
+    font-size: 19px;
+  }
+
+  .choice-btn {
+    min-height: 34px;
+
+    padding: 4px 6px;
+
+    font-size: 10px;
+  }
+
+  .feedback {
+    margin-top: 3px;
+
+    padding: 4px 6px;
+
+    font-size: 10px;
+  }
+
+  .speech-box {
+    margin-top: 3px;
+
+    padding: 5px;
+  }
+
+  .speech-prompt {
+    font-size: 11px;
+  }
+
+  .team-card {
+    min-height: 51px;
+  }
+
+  .team-icon {
+    font-size: 23px;
+  }
+
+  .team-tool {
+    font-size: 20px;
+  }
+
+}
+
+
+/* ======================================== */
+/* 세로 화면 */
+/* ======================================== */
+
+@media
+(max-width:850px)
+and
+(orientation:portrait) {
+
+  .game-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .team-panel {
+    display: none;
+  }
+
+  .repair-status {
+    grid-template-columns: 1fr;
+  }
+
+}
